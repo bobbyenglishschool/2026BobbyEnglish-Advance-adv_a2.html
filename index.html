@@ -2,6 +2,7 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
+    <!-- 🎯 全載具核心天線：加入最標準的縮放網頁視窗雷達，確保行動裝置完美適應 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>巴比美語補習班 | 專屬學員報名系統</title>
     <style>
@@ -36,7 +37,7 @@
             padding: 30px 40px;
         }
 
-        /* 🎯 任務 2：第一頁抬頭最上方動態智慧生產字樣（原樣原封不動，不破壞版面） */
+        /* 🎯 抬頭最上方動態智慧生產字樣 */
         .dynamic-top-banner {
             font-size: 15px;
             font-weight: bold;
@@ -138,7 +139,7 @@
             border-radius: 4px 4px 0 0;
         }
 
-        /* 🔒 守護方格地基：死死鎖定傳統表格排版，不使用任何手機端拆散方格的規則 */
+        /* 🔒 守護方格地基 */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -406,7 +407,6 @@
             .extra-summer-box { border: 1px solid #666; background-color: transparent; }
         }
 
-        /* 改用橫向溢位自動縮放護盾，手機平板電腦 100% 畫面完美自適應 */
         @media (max-width: 768px) {
             body { padding: 8px; }
             .page { padding: 15px 10px; }
@@ -425,6 +425,7 @@
         <input type="hidden" id="formSubject" name="_subject" value="【專屬報名登記】巴比美語單一課程填報通知">
         <input type="hidden" id="printLinkInput" name="查看並印出完整A4報名表" value="">
 
+        <!-- 由核心大腦動態寫入 -->
         <input type="hidden" id="course_name_hidden" name="course_name" value="">
         <input type="hidden" id="class_time" name="class_time" value="">
         <input type="hidden" id="sub_tuition" name="sub_tuition" value="0">
@@ -442,7 +443,7 @@
                     <h2 class="sub-title" id="subTitleDisplay">Bobby English School - Smart Course Enrollment Form</h2>
                     <div class="contact-info">
                         <p><strong>電話 / Phone：</strong>03-2161338</p>
-                         <p><strong>官方 / Line：</strong>@bobbyenglish</p>
+                        <p><strong>官方 / Line：</strong>@bobbyenglish</p>
                         <p><strong>信箱 / E-mail：</strong>Joy@bobbyenglishschool.com</p>
                         <p><strong>地址 / Address：</strong>330 桃園市桃園區莊二街156號1樓</p>
                         <p><strong>立案字號 / Registration No.：</strong>府教社字第0930131461號</p>
@@ -489,11 +490,11 @@
                         <th><span class="zh-title">與學生關係</span><span class="en-title">Relationship</span></th>
                         <td><input type="text" name="relation" class="text-input" placeholder="" required></td>
                         <th><span class="zh-title">聯絡電話</span><span class="en-title">Phone Number</span></th>
-                        <td><input type="tel" name="phone" class="text-input" placeholder="主要聯絡手機" required></td>
+                        <td><input type="tel" name="phone" class="text-input" placeholder="0912345678" required></td>
                     </tr>
                     <tr>
                         <th><span class="zh-title">電子信箱</span><span class="en-title">E-mail</span></th>
-                        <td colspan="3"><input type="email" name="email" class="text-input" placeholder=""></td>
+                        <td colspan="3"><input type="email" name="email" class="text-input" placeholder="example@email.com"></td>
                         <th><span class="zh-title">LINE ID</span><span class="en-title">LINE ID</span></th>
                         <td><input type="text" name="line_id" class="text-input" placeholder="LINE ID"></td>
                     </tr>
@@ -528,6 +529,28 @@
                     </tr>
                 </tbody>
             </table>
+
+            <!-- 暑期專案加購區（預設隱藏） -->
+            <div class="extra-summer-box" id="summerConfigBox">
+                <div class="extra-summer-title">☀️ 暑期課程特別配置艙 (Summer Options)</div>
+                <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap; font-size: 13px; padding-left: 8px;">
+                    <div>
+                        <b>1. 選擇報名週數：</b>
+                        <select id="summerWeeks" style="width: 150px; display: inline-block; border: 1px solid #1b3d6d; height: 30px; border-radius: 4px;" onchange="calculateTuition()">
+                            <option value="1">1 週課程 / 1 Week</option>
+                            <option value="2">2 週課程 / 2 Weeks</option>
+                            <option value="3">3 週 (享8折) / 3 Weeks</option>
+                            <option value="4">4 週 (享8折) / 4 Weeks</option>
+                            <option value="5">5 週 (享8折) / 5 Weeks</option>
+                            <option value="6">6 週 (享8折) / 6 Weeks</option>
+                        </select>
+                    </div>
+                    <div>
+                        <b>2. 加購下午英文複習班：</b>
+                        <label style="cursor: pointer; margin-left: 10px;"><input type="checkbox" id="summerPM" onchange="calculateTuition()"> 加購下午班 (1:30-4:30p.m.)</label>
+                    </div>
+                </div>
+            </div>
 
             <div class="offer-box" id="calcPreview">
                 核心大腦即時計算中...
@@ -612,7 +635,8 @@
                     </div>
                     <div class="signature-row">
                         <span>日期 Date</span>
-                        <input type="date" name="parent_sig_date" class="signature-input" required>
+                        <!-- 🎯 補強：加入 ID 便於 JavaScript 自動感應帶入日期 -->
+                        <input type="date" name="parent_sig_date" id="parentSigDate" class="signature-input" required>
                     </div>
                 </div>
 
@@ -623,7 +647,8 @@
                     </div>
                     <div class="signature-row">
                         <span>日期 Date</span>
-                        <input type="date" name="teacher_sig_date" class="signature-input">
+                        <!-- 🎯 補強：加入 ID 便於 JavaScript 自動感應帶入日期 -->
+                        <input type="date" name="teacher_sig_date" id="teacherSigDate" class="signature-input">
                     </div>
                 </div>
             </div>
@@ -669,10 +694,13 @@ window.onload = function() {
     }
     document.getElementById('mainTitleDisplay').innerHTML = "巴比美語補習班 ｜ " + courseCleanName + " 專屬智慧報名系統";
     document.getElementById('subTitleDisplay').innerHTML = "Bobby English School - " + TARGET_COURSE + " Enrollment Form";
-    
-    // 🚀 任務 2 智慧生產天線：自動在抬頭最上方動態生成專屬報名系統文字
     document.getElementById('dynamicBannerDisplay').innerHTML = TARGET_COURSE + " 專屬智慧報名系統";
     
+    // 🎯 自動時光晶片：開啟頁面自動帶入當天日期
+    var today = new Date().toISOString().split('T')[0];
+    if (document.getElementById('parentSigDate')) document.getElementById('parentSigDate').value = today;
+    if (document.getElementById('teacherSigDate')) document.getElementById('teacherSigDate').value = today;
+
     calculateTuition();
 };
 
@@ -682,16 +710,77 @@ function calculateTuition() {
     var timeDisplay = document.getElementById('timeDisplay');
     var calcPreview = document.getElementById('calcPreview');
     var totalInput = document.getElementById('total_amount');
+    var summerBox = document.getElementById('summerConfigBox');
+    var discountRow = document.getElementById('standardDiscountRow');
 
+    var discountRate = 1.0;
+    var activeRadio = document.querySelector('input[name="discount_plan"]:checked');
+    if (activeRadio) discountRate = parseFloat(activeRadio.value);
+
+    // 處理：2026 暑期班
+    if (courseKey === "2026 暑期班") {
+        labelDisplay.innerText = "☀️ 2026 Summer Classes 暑期密集英語營 (18堂/7-8月)";
+        summerBox.style.display = "block";
+        discountRow.style.opacity = "0.4";
+        
+        var weeks = parseInt(document.getElementById('summerWeeks').value);
+        var hasPM = document.getElementById('summerPM').checked;
+        
+        var baseRate = (weeks >= 3) ? 3600 : 4500;
+        var pmRate = (weeks >= 3) ? 1800 : 1912;
+        
+        var tuitionTotal = baseRate * weeks;
+        var pmTotal = hasPM ? (pmRate * weeks) : 0;
+        var finalTotal = tuitionTotal + pmTotal;
+
+        document.getElementById('class_time').value = "每週二、三、四 早上 9:00-12:00a.m.";
+        document.getElementById('sub_tuition').value = tuitionTotal;
+        document.getElementById('sub_materials').value = pmTotal;
+        document.getElementById('sub_misc').value = 0;
+        document.getElementById('summer_weeks_selected').value = weeks + "週";
+        document.getElementById('summer_pm_selected').value = hasPM ? "加購下午班" : "無加購";
+        
+        totalInput.value = "$" + finalTotal;
+
+        timeDisplay.innerText = "每週二、三、四 早上 9:00-12:00a.m.";
+        var bonusText = hasPM ? " (含下午英文複習班：每週$" + pmRate + " × " + weeks + "週)" : "";
+        var offerText = (weeks >= 3) ? "<span style='color:red;'>(已自動套用滿3週以上8折大特惠每週$3600!)</span>" : "(常態1-2週原價每週$4500)";
+        
+        calcPreview.innerHTML = "☀️ <b>2026 暑期密集英語營費用拆解 " + offerText + "</b>：<br>" +
+                                "早上密集班費用：$" + baseRate + " × " + weeks + "週 = $" + tuitionTotal + bonusText + "<br>" +
+                                "👉 <b>應繳實際總計金額：NT$ " + finalTotal + " 元</b>";
+        return;
+    }
+
+    summerBox.style.display = "none";
+    discountRow.style.opacity = "1";
+
+    // 處理：Advance B/C 系列定值
+    if (advancedDeadValues[courseKey]) {
+        var adv = advancedDeadValues[courseKey];
+        labelDisplay.innerText = adv.label;
+        var finalTotal = adv[discountRate.toString()] || adv["1.0"];
+        
+        document.getElementById('class_time').value = adv.time;
+        document.getElementById('sub_tuition').value = adv.t;
+        document.getElementById('sub_materials').value = adv.m;
+        document.getElementById('sub_misc').value = adv.ms;
+        
+        totalInput.value = "$" + finalTotal;
+
+        timeDisplay.innerText = adv.time;
+        calcPreview.innerHTML = "📚 <b>" + courseKey + " 費用即時拆解明細</b>：<br>" +
+                                "基本學費總計：$" + adv.t + " | 固定教材費：$" + adv.m + " | 當期學雜費：$" + adv.ms + "<br>" +
+                                "👉 <b>方案運算應繳總金額：NT$ " + finalTotal + " 元</b>";
+        return;
+    }
+
+    // 處理：Let's Go 1-6 與 Advance A1-A2 連動動態算式
     if (courseDatabase[courseKey]) {
         var course = courseDatabase[courseKey];
         labelDisplay.innerText = course.label;
         document.getElementById('class_time').value = course.time;
         
-        var discountRate = 1.0;
-        var activeRadio = document.querySelector('input[name="discount_plan"]:checked');
-        if (activeRadio) discountRate = parseFloat(activeRadio.value);
-
         var tuitionTotal = course.price * course.lessons;
         var materialsTotal = course.materials;
         var miscTotal = course.misc * course.lessons;
@@ -702,7 +791,6 @@ function calculateTuition() {
         document.getElementById('sub_materials').value = materialsTotal;
         document.getElementById('sub_misc').value = miscTotal;
         
-        // 🎯 黃金細節二修復：讓動態大腦在實時運算時，把 "$" 符號死死鎖在金額前方！
         totalInput.value = "$" + finalTotal;
 
         timeDisplay.innerText = course.time;
@@ -733,6 +821,51 @@ function showImagePreview(input) {
         reader.readAsDataURL(input.files[0]);
     }
 }
+
+// 🎯 核心補強：補齊遺失的表單送出事件監聽器與 GAS 自動連線晶片！
+document.getElementById('enrollmentForm').addEventListener('submit', function(e) {
+    e.preventDefault(); 
+    var form = this;
+    var submitBtn = document.getElementById('submitBtn');
+    
+    if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerText = "正在同步巴比核心雲端校務資料庫...";
+    }
+    
+    var params = new URLSearchParams();
+    var baseUrl = window.location.origin + window.location.pathname;
+    var formElements = form.elements;
+    
+    for (var i = 0; i < formElements.length; i++) {
+        var el = formElements[i];
+        if (!el.name || el.type === 'file' || el.type === 'submit' || el.name.startsWith('_')) continue;
+        if (el.type === 'radio') {
+            if (el.checked) params.append(el.name, el.value);
+        } else {
+            if (el.value) params.append(el.name, el.value);
+        }
+    }
+    params.append('auto_print', 'true');
+    document.getElementById('printLinkInput').value = baseUrl + '?' + params.toString();
+    
+    var googleAppsScriptUrl = "https://script.google.com/macros/s/AKfycbxt07hF-qkXePULEBjuCpzdWnaeNWsTlQV7dRhch_iBwtVePOIJzldTAsR0LothoQ1l/exec";
+    
+    // 🎯 核心防護：加入 mode: 'no-cors' 避開瀏覽器跨域安全性連線阻斷
+    fetch(googleAppsScriptUrl, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: new URLSearchParams(new FormData(form))
+    })
+    .then(function() {
+        alert("🎉 巴比美語：單一課程專屬雲端連線登記成功！");
+        form.submit(); 
+    })
+    .catch(function(error) {
+        console.warn("GAS Sync notice:", error);
+        form.submit();
+    });
+});
 </script>
 </body>
 </html>
