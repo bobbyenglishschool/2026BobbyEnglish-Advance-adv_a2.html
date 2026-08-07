@@ -2,88 +2,104 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <!-- 🎯 全載具核心天線：加入最標準的縮放網頁視窗雷達，確保行動裝置完美適應 -->
+    <!-- 🎯 全載具核心天線：最標準的縮放網頁視窗雷達，確保行動裝置完美適應 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>巴比美語補習班 | 專屬學員報名系統</title>
+    <title>巴比美語補習班 | Advance A2 專屬學員報名系統</title>
+    
+    <!-- 引入專業雙語 Google Fonts 字型 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --uci-blue: #1b3d6d;
+            --uci-blue-dark: #102a4d;
             --uci-gold: #fecc07;
+            --soft-red: #e74c3c;
+            --border-color: #cbd5e1;
+            --bg-light: #f8fafc;
         }
         
         * {
             box-shadow: none;
             box-sizing: border-box;
-            font-family: 'Helvetica Neue', Helvetica, Arial, 'Noto Sans TC', 'Microsoft JhengHei', '微軟正黑體', sans-serif;
+            font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
         }
 
         body {
-            background-color: #f4f7f6;
+            background-color: #f1f5f9;
             margin: 0;
             padding: 20px;
-            color: #333;
+            color: #1e293b;
             line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
         }
 
         .page-container {
             max-width: 800px;
             margin: 0 auto;
             background: #fff;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
             width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
         }
 
         .page {
             padding: 30px 40px;
         }
 
-        /* 🎯 抬頭最上方動態智慧生產字樣 */
+        /* 🎯 抬頭最上方動態智慧標籤 */
         .dynamic-top-banner {
-            font-size: 15px;
-            font-weight: bold;
+            font-size: 14px;
+            font-weight: 700;
             color: var(--uci-blue);
             background-color: #e6f0fa;
-            padding: 6px 12px;
-            border-radius: 4px;
-            margin-bottom: 15px;
-            border-left: 4px solid var(--uci-gold);
+            padding: 8px 16px;
+            border-radius: 6px;
+            margin-bottom: 18px;
+            border-left: 5px solid var(--uci-gold);
             display: inline-block;
         }
 
-        /* 經典頂部：左資料、右相片 */
+        /* 經典頂部：左資料、右照片 */
         .header-section {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
             margin-bottom: 20px;
             border-bottom: 3px solid var(--uci-blue);
-            padding-bottom: 15px;
+            padding-bottom: 18px;
+            gap: 15px;
         }
 
         .title-area {
             flex: 1;
-            padding-right: 20px;
+            padding-right: 15px;
             min-width: 0;
         }
 
         .main-title {
             color: var(--uci-blue);
-            font-size: 21px;
-            margin: 0 0 5px 0;
-            font-weight: bold;
+            font-size: 20px;
+            margin: 0 0 4px 0;
+            font-weight: 800;
+            letter-spacing: 0.3px;
         }
 
         .sub-title {
             color: var(--uci-blue);
-            font-size: 14px;
-            margin: 0 0 15px 0;
-            font-weight: normal;
+            font-size: 13.5px;
+            margin: 0 0 12px 0;
+            font-weight: 600;
+            opacity: 0.9;
         }
 
         .contact-info {
-            font-size: 11px;
-            color: #555;
-            line-height: 1.6;
+            font-size: 11.5px;
+            color: #475569;
+            line-height: 1.65;
         }
         
         .contact-info p {
@@ -91,25 +107,27 @@
         }
 
         .photo-box {
-            width: 2in;
-            height: 2in;
-            border: 2px solid var(--uci-blue);
+            width: 1.8in;
+            height: 2.1in;
+            border: 2px dashed var(--uci-blue);
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            font-size: 12px;
+            font-size: 11.5px;
             color: var(--uci-blue);
             flex-shrink: 0;
-            background-color: #fafafa;
+            background-color: #f8fafc;
             cursor: pointer;
             position: relative;
             overflow: hidden;
-            transition: background-color 0.2s;
+            transition: all 0.2s ease;
         }
 
         .photo-box:hover {
-            background-color: rgba(27, 61, 109, 0.05);
+            background-color: rgba(27, 61, 109, 0.08);
+            border-style: solid;
         }
 
         .photo-file-input {
@@ -131,21 +149,24 @@
         .section-title {
             background-color: var(--uci-blue);
             color: #fff;
-            padding: 8px 12px;
-            font-size: 16px;
-            font-weight: bold;
-            margin: 20px 0 10px 0;
+            padding: 8px 14px;
+            font-size: 15px;
+            font-weight: 700;
+            margin: 22px 0 12px 0;
             display: inline-block;
-            border-radius: 4px 4px 0 0;
+            border-radius: 6px 6px 0 0;
+            letter-spacing: 0.3px;
         }
 
-        /* 🔒 守護方格地基 */
+        /* 🔒 守護表格設定 */
         table {
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 15px;
             font-size: 13px;
             table-layout: fixed;
+            border-radius: 4px;
+            overflow: hidden;
         }
 
         th, td {
@@ -155,25 +176,25 @@
         }
 
         th {
-            background-color: #f0f4f8;
+            background-color: #f1f5f9;
             color: var(--uci-blue);
             text-align: center; 
             width: 18%;
-            line-height: 1.4;
-            font-weight: bold;
+            line-height: 1.35;
+            font-weight: 700;
             padding: 6px 4px;
         }
 
         th span.zh-title {
-            font-size: 14px;
+            font-size: 13.5px;
             display: block;
             margin-bottom: 2px;
-            font-weight: bold;
+            font-weight: 700;
         }
         th span.en-title {
             font-size: 10px;
             display: block;
-            font-weight: normal;
+            font-weight: 400;
             opacity: 0.85;
         }
 
@@ -200,7 +221,7 @@
         }
 
         .static-course-display {
-            font-weight: bold;
+            font-weight: 700;
             color: var(--uci-blue);
             font-size: 14px;
         }
@@ -211,7 +232,7 @@
         }
 
         .text-input:focus {
-            background-color: rgba(254, 204, 7, 0.1);
+            background-color: rgba(254, 204, 7, 0.15);
         }
 
         .radio-group {
@@ -236,7 +257,7 @@
             display: flex;
             align-items: center;
             justify-content: flex-start;
-            gap: 24px; 
+            gap: 20px; 
             padding-left: 8px;
             height: 100%;
             width: 100%;
@@ -253,13 +274,14 @@
         .offer-box {
             background-color: rgba(254, 204, 7, 0.15);
             border: 1px dashed var(--uci-gold);
-            padding: 12px;
+            padding: 12px 16px;
             margin: 15px 0;
-            border-radius: 4px;
-            font-weight: bold;
-            color: #997a00;
+            border-radius: 6px;
+            font-weight: 700;
+            color: #856404;
             text-align: center;
-            font-size: 14px;
+            font-size: 13.5px;
+            line-height: 1.6;
         }
 
         .terms-header {
@@ -268,25 +290,27 @@
             border-bottom: 2px solid var(--uci-blue);
             padding-bottom: 10px;
             margin-bottom: 20px;
+            font-weight: 800;
         }
 
         .privacy-statement {
-            background-color: #f0f4f8;
-            padding: 12px;
+            background-color: #f1f5f9;
+            padding: 12px 16px;
             border-left: 4px solid var(--uci-blue);
-            font-size: 13px;
+            font-size: 12.5px;
             margin-bottom: 20px;
             text-align: left;
+            border-radius: 0 4px 4px 0;
         }
 
         .terms-list {
-            font-size: 13px;
-            color: #444;
+            font-size: 12.5px;
+            color: #334155;
             text-align: left;
         }
 
         .terms-list .term-item {
-            margin-bottom: 15px;
+            margin-bottom: 14px;
             line-height: 1.6;
         }
 
@@ -296,16 +320,17 @@
 
         .agreement-text {
             text-align: center;
-            font-size: 14px;
-            font-weight: bold;
-            color: #c00;
+            font-size: 13.5px;
+            font-weight: 700;
+            color: var(--soft-red);
             margin: 25px 0;
+            line-height: 1.5;
         }
 
         .signature-section {
             display: flex;
             justify-content: space-between;
-            margin-top: 30px;
+            margin-top: 25px;
             gap: 20px;
         }
 
@@ -315,21 +340,21 @@
             border: 1px solid var(--uci-blue);
             padding: 15px;
             border-radius: 8px;
-            background-color: #fafbfc;
+            background-color: #f8fafc;
             text-align: left;
         }
 
         .signature-row {
             display: flex;
             align-items: flex-end;
-            margin-bottom: 15px;
-            height: 40px; 
+            margin-bottom: 12px;
+            height: 38px; 
         }
 
         .signature-row span {
             color: var(--uci-blue);
-            font-weight: bold;
-            font-size: 13px;
+            font-weight: 700;
+            font-size: 12.5px;
             line-height: 1.3;
             display: inline-block;
             width: 145px; 
@@ -338,11 +363,11 @@
 
         .signature-input {
             border: none;
-            border-bottom: 1px solid #666;
+            border-bottom: 1.5px solid #64748b;
             background: transparent;
             flex: 1;
             outline: none;
-            font-size: 16px;
+            font-size: 15px;
             padding: 2px 5px;
             text-align: left;
             width: 100%; 
@@ -357,32 +382,34 @@
             background-color: var(--uci-gold);
             color: var(--uci-blue);
             border: none;
-            padding: 15px 40px;
-            font-size: 18px;
-            font-weight: bold;
+            padding: 14px 40px;
+            font-size: 17px;
+            font-weight: 800;
             border-radius: 30px;
             cursor: pointer;
             width: 100%;
-            max-width: 400px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.2s, box-shadow 0.2s;
+            max-width: 420px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+            transition: all 0.2s ease;
         }
 
         .submit-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.18);
+            background-color: #f5c400;
         }
 
         .submit-btn:disabled {
-            background-color: #cccccc !important;
-            color: #666666 !important;
+            background-color: #cbd5e1 !important;
+            color: #64748b !important;
             cursor: not-allowed;
             transform: none !important;
+            box-shadow: none !important;
         }
 
         .extra-summer-box {
-            background-color: #f9fbfd;
-            border: 1px solid #bde0fe;
+            background-color: #f0f9ff;
+            border: 1px solid #bae6fd;
             padding: 15px;
             margin-top: 15px;
             border-radius: 6px;
@@ -391,16 +418,16 @@
         }
 
         .extra-summer-title {
-            color: #0077b6;
-            font-weight: bold;
+            color: #0284c7;
+            font-weight: 700;
             margin-bottom: 10px;
             font-size: 14px;
         }
 
         @media print {
-            @page { size: A4 portrait; margin: 10mm 15mm; }
+            @page { size: A4 portrait; margin: 10mm 12mm; }
             body { background-color: transparent; padding: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-            .page-container { box-shadow: none; max-width: 100%; }
+            .page-container { box-shadow: none; max-width: 100%; border-radius: 0; }
             .page1 { break-after: page; }
             .page { padding: 0; }
             .submit-btn-container { display: none !important; }
@@ -409,9 +436,10 @@
 
         @media (max-width: 768px) {
             body { padding: 8px; }
-            .page { padding: 15px 10px; }
-            .page-container { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-            .header-section { gap: 10px; }
+            .page { padding: 20px 15px; }
+            .page-container { border-radius: 0; }
+            .header-section { gap: 10px; flex-direction: column-reverse; }
+            .photo-box { width: 100%; height: 160px; }
             .signature-section { flex-direction: column; gap: 15px; }
             .signature-box { width: 100%; }
         }
@@ -480,7 +508,7 @@
                         <th><span class="zh-title">年級</span><span class="en-title">Grade</span></th>
                         <td>
                             <div style="display: flex; align-items: center; justify-content: flex-start; padding: 0 8px; height: 100%;">
-                                第 <input type="text" name="grade" style="border: none; border-bottom: 1px solid #333; width: 50px; text-align: center; margin: 0 5px; background: transparent; outline: none;"> 年級
+                                第 <input type="text" name="grade" style="border: none; border-bottom: 1px solid #333; width: 45px; text-align: center; margin: 0 4px; background: transparent; outline: none;"> 年級
                             </div>
                         </td>
                     </tr>
@@ -514,7 +542,7 @@
                             <div id="courseLabelDisplay" class="static-course-display">未設定課程</div>
                         </td>
                         <th><span class="zh-title">標準上課時段</span><span class="en-title">Schedule</span></th>
-                        <td colspan="2" id="timeDisplay" style="font-weight: bold; color: #1b3d6d; font-size: 11px; padding-left: 8px; white-space: nowrap;">載入中...</td>
+                        <td colspan="2" id="timeDisplay" style="font-weight: 700; color: var(--uci-blue); font-size: 11.5px; padding-left: 8px; white-space: nowrap;">載入中...</td>
                     </tr>
                     <tr id="standardDiscountRow">
                         <th><span class="zh-title">優惠方案配置</span><span class="en-title">Discount Plan</span></th>
@@ -561,7 +589,7 @@
                 <tbody>
                     <tr>
                         <th><span class="zh-title">應繳總金額</span><span class="en-title">Total Amount</span></th>
-                        <td><input type="text" id="total_amount" name="total_amount" class="text-input" style="font-weight: bold; color: #c00; font-size: 16px;" placeholder="$" readonly></td>
+                        <td><input type="text" id="total_amount" name="total_amount" class="text-input" style="font-weight: 800; color: var(--soft-red); font-size: 16px;" placeholder="$" readonly></td>
                         <th><span class="zh-title">付款方式</span><span class="en-title">Payment Method</span></th>
                         <td colspan="3">
                             <div class="payment-inline-row">
@@ -591,40 +619,40 @@
         </div>
 
         <div class="page page2">
-            <h2 class="terms-header">報名條款與家長同意書<br><span style="font-size: 14px; font-weight: normal;">Terms & Conditions (Bobby English School Policies)</span></h2>
+            <h2 class="terms-header">報名條款與家長同意書<br><span style="font-size: 13.5px; font-weight: normal;">Terms & Conditions (Bobby English School Policies)</span></h2>
             
             <div class="privacy-statement">
                 <strong>個資保護聲明 / Privacy Statement：</strong><br>
                 本班收集之個人資料僅供課程聯繫與行政管理使用，絕不外洩。符合中華民國個人資料保護法規範。<br>
-                <span style="color: #555; font-style: italic;">All personal data collected by Bobby English School is strictly used for course communication and administrative purposes in accordance with the Personal Data Protection Act of the R.O.C. and will never be disclosed to third parties.</span>
+                <span style="color: #64748b; font-style: italic;">All personal data collected by Bobby English School is strictly used for course communication and administrative purposes in accordance with the Personal Data Protection Act of the R.O.C. and will never be disclosed to third parties.</span>
             </div>
 
             <div class="terms-list">
                 <div class="term-item">
                     <strong>1. 審閱權與退費規定 / Refund Policy：</strong><br>
                     依據「桃園市短期補習班退費管理自治條例」規定辦理。家長攜回審閱期至少五日。開課前30日前退費者，退還全額；開課前1日至29日退費者，退還90%；開課後5日內要求退費者，退還80%；上課未逾全期1/3期間內要求退費者，退還50%；超過全期1/3學期者不予退費。教材發放後亦不予退還。<br>
-                    <span style="color: #555; font-style: italic;">Refunds are processed in accordance with the "Taoyuan Short-term Cram School Refund Management Regulations." Parents have at least a 5-day contract review period. A 100% refund is issued if requested 30 days prior to the course start date; a 90% refund if requested 1 to 29 days prior; an 80% refund within the first 5 days of class; a 50% refund if requested after the 6th day but before completing 1/3 of the total course duration. No refunds will be issued after 1/3 of the course duration has passed. No refunds on textbook or material fees once distributed.</span>
+                    <span style="color: #64748b; font-style: italic;">Refunds are processed in accordance with the "Taoyuan Short-term Cram School Refund Management Regulations." Parents have at least a 5-day contract review period. A 100% refund is issued if requested 30 days prior to the course start date; a 90% refund if requested 1 to 29 days prior; an 80% refund within the first 5 days of class; a 50% refund if requested after the 6th day but before completing 1/3 of the total course duration. No refunds will be issued after 1/3 of the course duration has passed. No refunds on textbook or material fees once distributed.</span>
                 </div>
                 <div class="term-item">
                     <strong>2. 請假與補課 / Leave & Make-up Lessons：</strong><br>
                     因事或病假缺席者，請於上課前兩小時透過官方 LINE 或電話完成請假。完成請假者，本班將提供一對一或小組補課、輔導。無故缺課者（曠課）不予補課與退費。<br>
-                    <span style="color: #555; font-style: italic;">In case of sick leave or personal leave, please notify the school via our official LINE account or phone at least 2 hours before class. For validated absences, the school will arrange one-on-one or small-group make-up tutoring. No make-up lessons or refunds will be provided for unexcused absences (truancy).</span>
+                    <span style="color: #64748b; font-style: italic;">In case of sick leave or personal leave, please notify the school via our official LINE account or phone at least 2 hours before class. For validated absences, the school will arrange one-on-one or small-group make-up tutoring. No make-up lessons or refunds will be provided for unexcused absences (truancy).</span>
                 </div>
                 <div class="term-item">
                     <strong>3. 安全與公共責任 / Safety & Public Liability Insurance：</strong><br>
                     為維護學生安全，下課後請家長按時前來接送。本補習班公共安全設施、消防設備以及公共意外責任險均嚴格符合政府法令規範。<br>
-                    <span style="color: #555; font-style: italic;">To ensure student safety, parents are requested to pick up their children on time after class. Our school's public safety facilities, fire safety equipment, and public liability insurance strictly comply with government laws and regulations.</span>
+                    <span style="color: #64748b; font-style: italic;">To ensure student safety, parents are requested to pick up their children on time after class. Our school's public safety facilities, fire safety equipment, and public liability insurance strictly comply with government laws and regulations.</span>
                 </div>
                 <div class="term-item">
                     <strong>4. 肖像權合理授權 / Portrait Rights Authorization：</strong><br>
                     家長同意本班在節慶活動、課堂成果中進行拍照或錄影，合理授權作為內部成果展示與官方推廣使用，且不損及學生名譽。<br>
-                    <span style="color: #555; font-style: italic;">Parents agree to allow the school to take photos or videos during holiday activities and class presentations. This constitutes a rational authorization for internal displays and official promotional use, ensuring that student reputation is fully protected.</span>
+                    <span style="color: #64748b; font-style: italic;">Parents agree to allow the school to take photos or videos during holiday activities and class presentations. This constitutes a rational authorization for internal displays and official promotional use, ensuring that student reputation is fully protected.</span>
                 </div>
             </div>
 
             <div class="agreement-text">
                 本人已詳細閱讀、理解並完全同意上述所有巴比美語短期補習服務條款。<br>
-                <span style="font-size: 13px; font-weight: normal; display: block; margin-top: 5px; font-style: italic;">I have read, understood, and fully agreed to all the terms and conditions of Bobby English School services stated above.</span>
+                <span style="font-size: 12.5px; font-weight: normal; display: block; margin-top: 4px; font-style: italic;">I have read, understood, and fully agreed to all the terms and conditions of Bobby English School services stated above.</span>
             </div>
 
             <div class="signature-section">
@@ -635,7 +663,6 @@
                     </div>
                     <div class="signature-row">
                         <span>日期 Date</span>
-                        <!-- 🎯 補強：加入 ID 便於 JavaScript 自動感應帶入日期 -->
                         <input type="date" name="parent_sig_date" id="parentSigDate" class="signature-input" required>
                     </div>
                 </div>
@@ -647,7 +674,6 @@
                     </div>
                     <div class="signature-row">
                         <span>日期 Date</span>
-                        <!-- 🎯 補強：加入 ID 便於 JavaScript 自動感應帶入日期 -->
                         <input type="date" name="teacher_sig_date" id="teacherSigDate" class="signature-input">
                     </div>
                 </div>
@@ -661,10 +687,10 @@
 </div>
 
 <script>
-// ===== 核心報名表對應資料庫 =====
+// ===== 核心報名表對應資料庫（Aegis 數據修復與校正版） =====
 var courseDatabase = {
     "Advance A1": { label: "Advance A1 兒童進階美語班", time: "每週三、五 4:30 PM - 6:30 PM (特調班)", lessons: 34, price: 770, materials: 2966, misc: 60 },
-    "Advance A2": { label: "Advance A2 兒童進階美語班", time: "每週二、四 4:30 PM - 6:30 PM", lessons: 38, price: 770, materials: 3826, misc: 60 }
+    "Advance A2": { label: "Advance A2 兒童進階美語與邏輯寫作班", time: "每週二、四 4:30 PM - 6:30 PM", lessons: 38, price: 770, materials: 2966, misc: 60 }
 };
 
 var advancedDeadValues = {
@@ -677,17 +703,16 @@ var advancedDeadValues = {
 };
 
 // ==========================================
-// ⭐ Joy 核心修改特區：修改這裡，抬頭大標題與第一行字也會自動跟著變魔術喔！
+// ⭐ Joy 核心修改特區
 // ==========================================
 var TARGET_COURSE = "Advance A2"; 
-
 
 // 頁面初始化自動綁定與運算
 window.onload = function() {
     document.getElementById('course_name_hidden').value = TARGET_COURSE;
     document.getElementById('formSubject').value = "【巴比單一課程報名】" + TARGET_COURSE + " 報名通知";
     
-    // 🚀 抬頭自動變魔術晶片：讓左邊的中英文大標題直接帶入課程名稱！
+    // 🚀 抬頭動態自動帶入課程名稱
     var courseCleanName = TARGET_COURSE;
     if (TARGET_COURSE === "2026 暑期班") {
         courseCleanName = "暑期密集營";
@@ -775,7 +800,7 @@ function calculateTuition() {
         return;
     }
 
-    // 處理：Let's Go 1-6 與 Advance A1-A2 連動動態算式
+    // 處理：Let's Go 1-6 與 Advance A1-A2 動態公式試算
     if (courseDatabase[courseKey]) {
         var course = courseDatabase[courseKey];
         labelDisplay.innerText = course.label;
@@ -822,7 +847,7 @@ function showImagePreview(input) {
     }
 }
 
-// 🎯 核心補強：補齊遺失的表單送出事件監聽器與 GAS 自動連線晶片！
+// 🎯 核心防護：補齊表單送出事件與雙重傳送保護機制
 document.getElementById('enrollmentForm').addEventListener('submit', function(e) {
     e.preventDefault(); 
     var form = this;
@@ -851,18 +876,18 @@ document.getElementById('enrollmentForm').addEventListener('submit', function(e)
     
     var googleAppsScriptUrl = "https://script.google.com/macros/s/AKfycbxt07hF-qkXePULEBjuCpzdWnaeNWsTlQV7dRhch_iBwtVePOIJzldTAsR0LothoQ1l/exec";
     
-    // 🎯 核心防護：加入 mode: 'no-cors' 避開瀏覽器跨域安全性連線阻斷
+    // 🎯 雙重防護：使用 mode: 'no-cors' 避開瀏覽器跨域阻斷
     fetch(googleAppsScriptUrl, {
         method: 'POST',
         mode: 'no-cors',
         body: new URLSearchParams(new FormData(form))
     })
     .then(function() {
-        alert("🎉 巴比美語：單一課程專屬雲端連線登記成功！");
+        alert("🎉 巴比美語：Advance A2 班線上報名與簽約成功！");
         form.submit(); 
     })
     .catch(function(error) {
-        console.warn("GAS Sync notice:", error);
+        console.warn("GAS Sync Notice:", error);
         form.submit();
     });
 });
