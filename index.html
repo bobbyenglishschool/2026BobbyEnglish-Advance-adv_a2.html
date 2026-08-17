@@ -17,7 +17,7 @@
             --uci-gold: #fecc07;
             --soft-red: #e74c3c;
             --card-bg: #f8fafc;
-            --border-color: #cbd5e1;
+            --border-color: #1b3d6d; /* 強制導向巴比深藍 */
             --text-main: #1e293b;
             --text-sub: #475569;
         }
@@ -107,7 +107,7 @@
         .photo-box {
             width: 2in;
             height: 2in;
-            border: 2px solid var(--uci-blue);
+            border: 2px solid var(--uci-blue) !important;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -162,7 +162,7 @@
             margin-bottom: 15px;
         }
 
-        /* 🔒 邊框顯色修復：三大主題下方表格外框與內部格線全數強制補上實體深藍色 (#1b3d6d !important)！ */
+        /* 🔒 Aegis 核心 UI 規範 1：所有表格與內格線 100% 飽滿巴比深藍色實體化 */
         table {
             width: 100%;
             border-collapse: collapse !important;
@@ -227,17 +227,35 @@
             justify-content: flex-start;
         }
 
+        /* 🎯 Aegis 核心 UI 規範 5：選讀班別拆解兩行、去「班」字、100% 幾何精準居中 */
         .static-course-display {
             font-weight: bold;
             color: var(--uci-blue);
             font-size: 13.5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center !important;
+            justify-content: center !important;
+            text-align: center !important;
+            line-height: 1.3;
+            padding: 4px 0;
+        }
+        
+        .static-course-display .course-id {
+            font-size: 14px;
+            font-weight: 800;
+        }
+        .static-course-display .course-zh {
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 2px;
         }
 
-        /* 🎯 DOB 靠右微調：靠右對齊且預留 12px 安全距離，100% 絕不碰到右邊框線！ */
+        /* 🎯 Aegis 核心 UI 規範 2：DOB 原生 Date Picker 靠右置中並預留 12px 安全氣墊防撞 */
         input[type="date"].text-input {
             display: block; 
             line-height: normal;
-            padding: 2px 12px 2px 2px !important;
+            padding-right: 12px !important;
             font-size: 11.5px !important;
             letter-spacing: -0.2px;
             text-align: right !important;
@@ -334,6 +352,9 @@
             text-align: justify;
             line-height: 1.65;
             box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+            border-top: 1px solid #1b3d6d !important;
+            border-right: 1px solid #1b3d6d !important;
+            border-bottom: 1px solid #1b3d6d !important;
         }
 
         .terms-list {
@@ -348,7 +369,7 @@
             background: #ffffff;
             padding: 10px 14px;
             border-radius: 6px;
-            border: 1px solid var(--border-color);
+            border: 1px solid #1b3d6d !important;
         }
 
         .terms-list strong {
@@ -376,7 +397,7 @@
         .signature-box {
             flex: 1;
             width: 50%; 
-            border: 1.5px solid var(--uci-blue);
+            border: 1.5px solid var(--uci-blue) !important;
             padding: 16px;
             border-radius: 8px;
             background-color: #fafbfc;
@@ -451,7 +472,7 @@
 
         .extra-summer-box {
             background-color: #f9fbfd;
-            border: 1px solid #bde0fe;
+            border: 1px solid #1b3d6d !important;
             padding: 15px;
             margin-top: 15px;
             border-radius: 6px;
@@ -460,7 +481,7 @@
         }
 
         .extra-summer-title {
-            color: #0077b6;
+            color: var(--uci-blue);
             font-weight: bold;
             margin-bottom: 10px;
             font-size: 14px;
@@ -473,7 +494,7 @@
             .page1 { break-after: page; }
             .page { padding: 0; }
             .submit-btn-container { display: none !important; }
-            .extra-summer-box { border: 1px solid #666; background-color: transparent; }
+            .extra-summer-box { border: 1px solid #1b3d6d !important; background-color: transparent; }
             table, th, td { border: 1px solid #1b3d6d !important; }
         }
 
@@ -586,9 +607,11 @@
                         <tr>
                             <th><span class="zh-title">就讀班別</span><span class="en-title">Course</span></th>
                             <td colspan="2">
+                                <!-- 🎯 核心 UI 規範 3 & 5：選讀班別拆解兩行、去「班」字、100% 精準居中 -->
                                 <div id="courseLabelDisplay" class="static-course-display">未設定課程</div>
                             </td>
                             <th><span class="zh-title">標準上課時段</span><span class="en-title">Schedule</span></th>
+                            <!-- 🎯 核心 UI 規範 3：標準時段幾何對稱、上下左右 100% 居中 -->
                             <td colspan="2" id="timeDisplay" style="padding: 0; text-align: center; vertical-align: middle;">載入中...</td>
                         </tr>
                         <tr id="standardDiscountRow">
@@ -598,7 +621,7 @@
                                     <label><input type="radio" name="discount_plan" value="1.0" checked onchange="calculateTuition()"> 常態收費原價 (Full Price)</label>
                                     <label><input type="radio" name="discount_plan" value="0.9" onchange="calculateTuition()"> 9 折優惠 (10% OFF)</label>
                                     <label><input type="radio" name="discount_plan" value="0.85" onchange="calculateTuition()"> 85 折優惠 (15% OFF)</label>
-                                    <!-- 🎯 已同步刪除「老朋友」字樣，保留「✨ 8 折優惠」 -->
+                                    <!-- 🎯 核心 UI 規範 6：去身分標籤，統一為「✨ 8 折優惠」 -->
                                     <label><input type="radio" name="discount_plan" value="0.8" onchange="calculateTuition()"> ✨ 8 折優惠 (20% OFF)</label>
                                 </div>
                             </td>
@@ -714,6 +737,7 @@
                     </div>
                     <div class="signature-row">
                         <span>日期 Date</span>
+                        <!-- 🎯 核心 UI 規範 5：審閱期攜回日期即為家長開頁當天日期 -->
                         <input type="date" name="parent_sig_date" id="parentSigDate" class="signature-input" required>
                     </div>
                 </div>
@@ -741,24 +765,26 @@
 // ===== 核心報名表對應資料庫 =====
 var courseDatabase = {
     "Advance A1": { 
-        label: "Advance A1 兒童進階美語", 
+        id: "Advance A1",
+        zhName: "兒童進階美語", 
         time: "<div style='display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 4px 0;'><div style='font-weight:800; color:var(--uci-blue); font-size:13px; line-height:1.2;'><span class='no-orphan'>每週三、五</span></div><div style='font-weight:700; color:var(--uci-blue); font-size:11.5px; line-height:1.2; margin-top:3px;'><span class='no-orphan'>4:30 PM - 6:30 PM</span></div></div>", 
         lessons: 34, price: 770, materials: 2966, misc: 60 
     },
     "Advance A2": { 
-        label: "Advance A2 兒童進階美語", 
+        id: "Advance A2",
+        zhName: "兒童進階美語", 
         time: "<div style='display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 4px 0;'><div style='font-weight:800; color:var(--uci-blue); font-size:13px; line-height:1.2;'><span class='no-orphan'>每週二、四</span></div><div style='font-weight:700; color:var(--uci-blue); font-size:11.5px; line-height:1.2; margin-top:3px;'><span class='no-orphan'>4:30 PM - 6:30 PM</span></div></div>", 
         lessons: 38, price: 770, materials: 3826, misc: 60 
     }
 };
 
 var advancedDeadValues = {
-    "Advance B1 新進": { label: "Advance B1 青少年進階美語 (新進學生)", "1.0": 36680, "0.9": 33012, "0.85": 31178, "0.8": 29344, time: "<div style='display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 4px 0;'><div style='font-weight:800; color:var(--uci-blue); font-size:13px; line-height:1.2;'><span class='no-orphan'>每週二、四</span></div><div style='font-weight:700; color:var(--uci-blue); font-size:11.5px; line-height:1.2; margin-top:3px;'><span class='no-orphan'>7:00 PM - 9:00 PM</span></div></div>", t: 31160, m: 3240, ms: 2280 },
-    "Advance B1 晉升": { label: "Advance B1 青少年進階美語 (晉升學生)", "1.0": 33940, "0.9": 30546, "0.85": 28849, "0.8": 27152, time: "<div style='display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 4px 0;'><div style='font-weight:800; color:var(--uci-blue); font-size:13px; line-height:1.2;'><span class='no-orphan'>每週二、四</span></div><div style='font-weight:700; color:var(--uci-blue); font-size:11.5px; line-height:1.2; margin-top:3px;'><span class='no-orphan'>7:00 PM - 9:00 PM</span></div></div>", t: 31160, m: 500, ms: 2280 },
-    "Advance B2 新進": { label: "Advance B2 青少年進階美語 (新進學生)", "1.0": 36680, "0.9": 33012, "0.85": 31178, "0.8": 29344, time: "<div style='display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 4px 0;'><div style='font-weight:800; color:var(--uci-blue); font-size:13px; line-height:1.2;'><span class='no-orphan'>每週二、四</span></div><div style='font-weight:700; color:var(--uci-blue); font-size:11.5px; line-height:1.2; margin-top:3px;'><span class='no-orphan'>7:00 PM - 9:00 PM</span></div></div>", t: 31160, m: 3240, ms: 2280 },
-    "Advance B2 晉升": { label: "Advance B2 青少年進階美語 (晉升學生)", "1.0": 33940, "0.9": 30546, "0.85": 28849, "0.8": 27152, time: "<div style='display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 4px 0;'><div style='font-weight:800; color:var(--uci-blue); font-size:13px; line-height:1.2;'><span class='no-orphan'>每週二、四</span></div><div style='font-weight:700; color:var(--uci-blue); font-size:11.5px; line-height:1.2; margin-top:3px;'><span class='no-orphan'>7:00 PM - 9:00 PM</span></div></div>", t: 31160, m: 500, ms: 2280 },
-    "Advance C1 新進": { label: "Advance C1 青少年進階美語 (新進學生)", "1.0": 17140, "0.9": 15426, "0.85": 14569, "0.8": 13712, time: "<div style='display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 4px 0;'><div style='font-weight:800; color:var(--uci-blue); font-size:13px; line-height:1.2;'><span class='no-orphan'>每週一晚上</span></div><div style='font-size:11px; opacity:0.9; margin-top:1px;'><span class='no-orphan'>7:00 PM - 9:00 PM</span></div></div>", t: 14450, m: 1840, ms: 850 },
-    "Advance C1 晉升": { label: "Advance C1 青少年進階美語 (晉升學生)", "1.0": 15800, "0.9": 14220, "0.85": 13430, "0.8": 12640, time: "<div style='display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 4px 0;'><div style='font-weight:800; color:var(--uci-blue); font-size:13px; line-height:1.2;'><span class='no-orphan'>每週一晚上</span></div><div style='font-size:11px; opacity:0.9; margin-top:1px;'><span class='no-orphan'>7:00 PM - 9:00 PM</span></div></div>", t: 14450, m: 500, ms: 850 }
+    "Advance B1 新進": { id: "Advance B1", zhName: "青少年進階美語 (新進)", "1.0": 36680, "0.9": 33012, "0.85": 31178, "0.8": 29344, time: "<div style='display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 4px 0;'><div style='font-weight:800; color:var(--uci-blue); font-size:13px; line-height:1.2;'><span class='no-orphan'>每週二、四</span></div><div style='font-weight:700; color:var(--uci-blue); font-size:11.5px; line-height:1.2; margin-top:3px;'><span class='no-orphan'>7:00 PM - 9:00 PM</span></div></div>", t: 31160, m: 3240, ms: 2280 },
+    "Advance B1 晉升": { id: "Advance B1", zhName: "青少年進階美語 (晉升)", "1.0": 33940, "0.9": 30546, "0.85": 28849, "0.8": 27152, time: "<div style='display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 4px 0;'><div style='font-weight:800; color:var(--uci-blue); font-size:13px; line-height:1.2;'><span class='no-orphan'>每週二、四</span></div><div style='font-weight:700; color:var(--uci-blue); font-size:11.5px; line-height:1.2; margin-top:3px;'><span class='no-orphan'>7:00 PM - 9:00 PM</span></div></div>", t: 31160, m: 500, ms: 2280 },
+    "Advance B2 新進": { id: "Advance B2", zhName: "青少年進階美語 (新進)", "1.0": 36680, "0.9": 33012, "0.85": 31178, "0.8": 29344, time: "<div style='display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 4px 0;'><div style='font-weight:800; color:var(--uci-blue); font-size:13px; line-height:1.2;'><span class='no-orphan'>每週二、四</span></div><div style='font-weight:700; color:var(--uci-blue); font-size:11.5px; line-height:1.2; margin-top:3px;'><span class='no-orphan'>7:00 PM - 9:00 PM</span></div></div>", t: 31160, m: 3240, ms: 2280 },
+    "Advance B2 晉升": { id: "Advance B2", zhName: "青少年進階美語 (晉升)", "1.0": 33940, "0.9": 30546, "0.85": 28849, "0.8": 27152, time: "<div style='display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 4px 0;'><div style='font-weight:800; color:var(--uci-blue); font-size:13px; line-height:1.2;'><span class='no-orphan'>每週二、四</span></div><div style='font-weight:700; color:var(--uci-blue); font-size:11.5px; line-height:1.2; margin-top:3px;'><span class='no-orphan'>7:00 PM - 9:00 PM</span></div></div>", t: 31160, m: 500, ms: 2280 },
+    "Advance C1 新進": { id: "Advance C1", zhName: "青少年進階美語 (新進)", "1.0": 17140, "0.9": 15426, "0.85": 14569, "0.8": 13712, time: "<div style='display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 4px 0;'><div style='font-weight:800; color:var(--uci-blue); font-size:13px; line-height:1.2;'><span class='no-orphan'>每週一晚上</span></div><div style='font-size:11px; opacity:0.9; margin-top:1px;'><span class='no-orphan'>7:00 PM - 9:00 PM</span></div></div>", t: 14450, m: 1840, ms: 850 },
+    "Advance C1 晉升": { id: "Advance C1", zhName: "青少年進階美語 (晉升)", "1.0": 15800, "0.9": 14220, "0.85": 13430, "0.8": 12640, time: "<div style='display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 4px 0;'><div style='font-weight:800; color:var(--uci-blue); font-size:13px; line-height:1.2;'><span class='no-orphan'>每週一晚上</span></div><div style='font-size:11px; opacity:0.9; margin-top:1px;'><span class='no-orphan'>7:00 PM - 9:00 PM</span></div></div>", t: 14450, m: 500, ms: 850 }
 };
 
 // ==========================================
@@ -800,7 +826,7 @@ function calculateTuition() {
 
         // 處理：2026 暑期班
         if (courseKey === "2026 暑期班") {
-            labelDisplay.innerText = "☀️ 2026 Summer Classes 暑期密集英語營 (18堂/7-8月)";
+            labelDisplay.innerHTML = "<div class='course-id'>☀️ 2026 Summer Classes</div><div class='course-zh'>暑期密集英語營 (18堂/7-8月)</div>";
             summerBox.style.display = "block";
             discountRow.style.opacity = "0.4";
             
@@ -839,7 +865,9 @@ function calculateTuition() {
         // 處理：Advance B/C 系列定值
         if (advancedDeadValues[courseKey]) {
             var adv = advancedDeadValues[courseKey];
-            labelDisplay.innerText = adv.label;
+            // 🎯 Aegis 核心 UI 規範 5：選讀班別拆解兩行、去「班」字、幾何精準居中
+            labelDisplay.innerHTML = "<div class='course-id'>" + adv.id + "</div><div class='course-zh'>" + adv.zhName + "</div>";
+            
             var finalTotal = adv[discountRate.toString()] || adv["1.0"];
             
             document.getElementById('class_time').value = adv.time.replace(/<[^>]+>/g, '');
@@ -856,10 +884,11 @@ function calculateTuition() {
             return;
         }
 
-        // 🎯 核心修正：Advance A2 全項目（學費＋教材＋雜費）連動動態算式
+        // 🎯 Aegis 核心 UI 規範 4：全項目【應繳總金額 = Math.round((基本學費 + 原價教材費 + 當期學雜費) * 折扣率)】
         if (courseDatabase[courseKey]) {
             var course = courseDatabase[courseKey];
-            labelDisplay.innerText = course.label;
+            // 🎯 兩行拆解去「班」字雙行呈現
+            labelDisplay.innerHTML = "<div class='course-id'>" + course.id + "</div><div class='course-zh'>" + course.zhName + "</div>";
             document.getElementById('class_time').value = "每週二四 4:30-6:30 PM";
             
             var tuitionTotal = course.price * course.lessons; // 770 * 38 = 29,260
@@ -869,7 +898,7 @@ function calculateTuition() {
             // 全項目未折總計 = 29,260 + 3,826 + 2,280 = 35,366
             var subTotal = tuitionTotal + materialsTotal + miscTotal;
             
-            // 🎯 核心修正：全項目一律連動乘上折扣率並四捨五入！
+            // 🎯 全項目一律連動乘上折扣率並四捨五入！
             var finalTotal = Math.round(subTotal * discountRate);
 
             document.getElementById('sub_tuition').value = tuitionTotal;
@@ -879,12 +908,12 @@ function calculateTuition() {
             totalInput.value = "$" + finalTotal;
             timeDisplay.innerHTML = course.time;
             
-            // 🎯 折扣顯示標籤修正：轉換為 85折, 8折，去除老朋友字樣
+            // 🎯 去除「老朋友」字樣，統一顯示為尊榮8折或常態運算
             var discountStr = (discountRate * 100).toString();
             if (discountRate === 0.9) discountStr = "9";
             if (discountRate === 0.8) discountStr = "8";
             
-            var discountLabel = discountRate === 0.8 ? " <span style='color:red;'>(尊榮8折)</span>" : " (常態運算)";
+            var discountLabel = discountRate === 0.8 ? " <span style='color:red;'>(享8折特惠)</span>" : " (常態運算)";
 
             calcPreview.innerHTML = "📚 <b>" + courseKey + " 全項目折扣拆解明細" + discountLabel + "</b>：<br>" +
                                     "基本學費：$" + course.price + " × " + course.lessons + "堂 = $" + tuitionTotal + " | " +
