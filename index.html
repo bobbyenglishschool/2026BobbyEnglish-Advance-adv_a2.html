@@ -768,13 +768,14 @@ var courseDatabase = {
         id: "Advance A1",
         zhName: "兒童進階美語", 
         time: "<div style='display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 4px 0;'><div style='font-weight:800; color:var(--uci-blue); font-size:13px; line-height:1.2;'><span class='no-orphan'>每週三、五</span></div><div style='font-weight:700; color:var(--uci-blue); font-size:11.5px; line-height:1.2; margin-top:3px;'><span class='no-orphan'>4:30 PM - 6:30 PM</span></div></div>", 
-        lessons: 34, price: 770, materials: 2966, misc: 60 
+        lessons: 34, price: 770, materials: 3520, misc: 60 
     },
+    // 🎯 精準修正：教材費用已由 $3,826 升級更新為 $3,520 ($2,770 + $750)
     "Advance A2": { 
         id: "Advance A2",
         zhName: "兒童進階美語", 
         time: "<div style='display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 4px 0;'><div style='font-weight:800; color:var(--uci-blue); font-size:13px; line-height:1.2;'><span class='no-orphan'>每週二、四</span></div><div style='font-weight:700; color:var(--uci-blue); font-size:11.5px; line-height:1.2; margin-top:3px;'><span class='no-orphan'>4:30 PM - 6:30 PM</span></div></div>", 
-        lessons: 38, price: 770, materials: 3826, misc: 60 
+        lessons: 38, price: 770, materials: 3520, misc: 60 
     }
 };
 
@@ -892,10 +893,10 @@ function calculateTuition() {
             document.getElementById('class_time').value = "每週二四 4:30-6:30 PM";
             
             var tuitionTotal = course.price * course.lessons; // 770 * 38 = 29,260
-            var materialsTotal = course.materials;           // 3,826
+            var materialsTotal = course.materials;           // 3,520 ($2,770 + $750)
             var miscTotal = course.misc * course.lessons;     // 60 * 38 = 2,280
             
-            // 全項目未折總計 = 29,260 + 3,826 + 2,280 = 35,366
+            // 全項目未折總計 = 29,260 + 3,520 + 2,280 = 35,060
             var subTotal = tuitionTotal + materialsTotal + miscTotal;
             
             // 🎯 全項目一律連動乘上折扣率並四捨五入！
@@ -908,7 +909,7 @@ function calculateTuition() {
             totalInput.value = "$" + finalTotal;
             timeDisplay.innerHTML = course.time;
             
-            // 🎯 去除「老朋友」字樣，統一顯示為尊榮8折或常態運算
+            // 🎯 去除「老朋友」字樣，統一顯示為享8折特惠或常態運算
             var discountStr = (discountRate * 100).toString();
             if (discountRate === 0.9) discountStr = "9";
             if (discountRate === 0.8) discountStr = "8";
@@ -916,10 +917,10 @@ function calculateTuition() {
             var discountLabel = discountRate === 0.8 ? " <span style='color:red;'>(享8折特惠)</span>" : " (常態運算)";
 
             calcPreview.innerHTML = "📚 <b>" + courseKey + " 全項目折扣拆解明細" + discountLabel + "</b>：<br>" +
-                                    "基本學費：$" + course.price + " × " + course.lessons + "堂 = $" + tuitionTotal + " | " +
-                                    "原價教材費：$" + materialsTotal + " | " +
-                                    "學雜費：$" + course.misc + " × " + course.lessons + "堂 = $" + miscTotal + "<br>" +
-                                    "👉 <b>全項目（學費＋教材＋雜費）套用 " + discountStr + " 折後實際總計：NT$ " + finalTotal + " 元</b>";
+                                    "基本學費：$" + course.price + " × " + course.lessons + "堂 = $" + tuitionTotal.toLocaleString() + " | " +
+                                    "原價教材費：$" + materialsTotal.toLocaleString() + " | " +
+                                    "學雜費：$" + course.misc + " × " + course.lessons + "堂 = $" + miscTotal.toLocaleString() + "<br>" +
+                                    "👉 <b>全項目（學費＋教材＋雜費）套用 " + discountStr + " 折後實際總計：NT$ " + finalTotal.toLocaleString() + " 元</b>";
         }
     } catch (err) {
         console.error("Tuition calculation error resolved:", err);
