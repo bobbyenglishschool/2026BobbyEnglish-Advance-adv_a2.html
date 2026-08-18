@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <!-- 🎯 全載具核心天線：確保行動裝置與 A4 紙張列印排版 100% 完美自適應 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>巴比美語補習班 | 專屬學員報名系統 (Advance A2)</title>
+    <title>私立巴比美語短期補習班 | 專屬學員報名系統 (Advance A2)</title>
     
     <!-- 引入專業雙語 Google Fonts 字型 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -154,7 +154,6 @@
             border-radius: 6px 6px 0 0;
         }
 
-        /* 表格行動端包裹容器 */
         .table-responsive-wrapper {
             width: 100%;
             overflow-x: auto;
@@ -264,7 +263,6 @@
             box-sizing: border-box;
         }
 
-        /* 收據編號右邊填空欄字體縮小 */
         input[name="receipt_no"].text-input {
             font-size: 11.5px !important;
             padding: 4px 6px;
@@ -330,7 +328,6 @@
             line-height: 1.6;
         }
 
-        /* 第二頁條款美化升級區塊 */
         .terms-header {
             text-align: center;
             color: var(--uci-blue);
@@ -531,7 +528,7 @@
 
             <div class="header-section">
                 <div class="title-area">
-                    <h1 class="main-title" id="mainTitleDisplay">巴比美語補習班 ｜ 全能智慧校務報名系統</h1>
+                    <h1 class="main-title" id="mainTitleDisplay">私立巴比美語短期補習班 ｜ 全能智慧校務報名系統</h1>
                     <h2 class="sub-title" id="subTitleDisplay">Bobby English School - Smart Course Enrollment Form</h2>
                     <div class="contact-info">
                         <p><strong>電話 / Phone：</strong>03-2161338</p>
@@ -779,13 +776,11 @@ var courseDatabase = {
     }
 };
 
+// 🎯 去身分標籤：統一標準，不留「新進/晉升」字樣
 var advancedDeadValues = {
-    "Advance B1 新進": { id: "Advance B1", zhName: "青少年進階美語 (新進)", "1.0": 36680, "0.9": 33012, "0.85": 31178, "0.8": 29344, time: "<div style='display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 4px 0;'><div style='font-weight:800; color:var(--uci-blue); font-size:13px; line-height:1.2;'><span class='no-orphan'>每週二、四</span></div><div style='font-weight:700; color:var(--uci-blue); font-size:11.5px; line-height:1.2; margin-top:3px;'><span class='no-orphan'>7:00 PM - 9:00 PM</span></div></div>", t: 31160, m: 3240, ms: 2280 },
-    "Advance B1 晉升": { id: "Advance B1", zhName: "青少年進階美語 (晉升)", "1.0": 33940, "0.9": 30546, "0.85": 28849, "0.8": 27152, time: "<div style='display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 4px 0;'><div style='font-weight:800; color:var(--uci-blue); font-size:13px; line-height:1.2;'><span class='no-orphan'>每週二、四</span></div><div style='font-weight:700; color:var(--uci-blue); font-size:11.5px; line-height:1.2; margin-top:3px;'><span class='no-orphan'>7:00 PM - 9:00 PM</span></div></div>", t: 31160, m: 500, ms: 2280 },
-    "Advance B2 新進": { id: "Advance B2", zhName: "青少年進階美語 (新進)", "1.0": 36680, "0.9": 33012, "0.85": 31178, "0.8": 29344, time: "<div style='display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 4px 0;'><div style='font-weight:800; color:var(--uci-blue); font-size:13px; line-height:1.2;'><span class='no-orphan'>每週二、四</span></div><div style='font-weight:700; color:var(--uci-blue); font-size:11.5px; line-height:1.2; margin-top:3px;'><span class='no-orphan'>7:00 PM - 9:00 PM</span></div></div>", t: 31160, m: 3240, ms: 2280 },
-    "Advance B2 晉升": { id: "Advance B2", zhName: "青少年進階美語 (晉升)", "1.0": 33940, "0.9": 30546, "0.85": 28849, "0.8": 27152, time: "<div style='display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 4px 0;'><div style='font-weight:800; color:var(--uci-blue); font-size:13px; line-height:1.2;'><span class='no-orphan'>每週二、四</span></div><div style='font-weight:700; color:var(--uci-blue); font-size:11.5px; line-height:1.2; margin-top:3px;'><span class='no-orphan'>7:00 PM - 9:00 PM</span></div></div>", t: 31160, m: 500, ms: 2280 },
-    "Advance C1 新進": { id: "Advance C1", zhName: "青少年進階美語 (新進)", "1.0": 17140, "0.9": 15426, "0.85": 14569, "0.8": 13712, time: "<div style='display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 4px 0;'><div style='font-weight:800; color:var(--uci-blue); font-size:13px; line-height:1.2;'><span class='no-orphan'>每週一晚上</span></div><div style='font-size:11px; opacity:0.9; margin-top:1px;'><span class='no-orphan'>7:00 PM - 9:00 PM</span></div></div>", t: 14450, m: 1840, ms: 850 },
-    "Advance C1 晉升": { id: "Advance C1", zhName: "青少年進階美語 (晉升)", "1.0": 15800, "0.9": 14220, "0.85": 13430, "0.8": 12640, time: "<div style='display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 4px 0;'><div style='font-weight:800; color:var(--uci-blue); font-size:13px; line-height:1.2;'><span class='no-orphan'>每週一晚上</span></div><div style='font-size:11px; opacity:0.9; margin-top:1px;'><span class='no-orphan'>7:00 PM - 9:00 PM</span></div></div>", t: 14450, m: 500, ms: 850 }
+    "Advance B1": { id: "Advance B1", zhName: "青少年進階美語", "1.0": 36680, "0.9": 33012, "0.85": 31178, "0.8": 29344, time: "<div style='display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 4px 0;'><div style='font-weight:800; color:var(--uci-blue); font-size:13px; line-height:1.2;'><span class='no-orphan'>每週二、四</span></div><div style='font-weight:700; color:var(--uci-blue); font-size:11.5px; line-height:1.2; margin-top:3px;'><span class='no-orphan'>7:00 PM - 9:00 PM</span></div></div>", t: 31160, m: 3240, ms: 2280 },
+    "Advance B2": { id: "Advance B2", zhName: "青少年進階美語", "1.0": 36680, "0.9": 33012, "0.85": 31178, "0.8": 29344, time: "<div style='display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 4px 0;'><div style='font-weight:800; color:var(--uci-blue); font-size:13px; line-height:1.2;'><span class='no-orphan'>每週二、四</span></div><div style='font-weight:700; color:var(--uci-blue); font-size:11.5px; line-height:1.2; margin-top:3px;'><span class='no-orphan'>7:00 PM - 9:00 PM</span></div></div>", t: 31160, m: 3240, ms: 2280 },
+    "Advance C1": { id: "Advance C1", zhName: "青少年進階美語", "1.0": 17140, "0.9": 15426, "0.85": 14569, "0.8": 13712, time: "<div style='display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 4px 0;'><div style='font-weight:800; color:var(--uci-blue); font-size:13px; line-height:1.2;'><span class='no-orphan'>每週一晚上</span></div><div style='font-size:11px; opacity:0.9; margin-top:1px;'><span class='no-orphan'>7:00 PM - 9:00 PM</span></div></div>", t: 14450, m: 1840, ms: 850 }
 };
 
 // ==========================================
@@ -799,7 +794,7 @@ window.onload = function() {
     document.getElementById('formSubject').value = "【巴比單一課程報名】" + TARGET_COURSE + " 報名通知";
     
     // 🚀 抬頭自動變魔術晶片：主標題與動態 Banner 自動連動
-    document.getElementById('mainTitleDisplay').innerHTML = "巴比美語補習班 ｜ " + TARGET_COURSE + " 專屬智慧報名系統";
+    document.getElementById('mainTitleDisplay').innerHTML = "私立巴比美語短期補習班 ｜ " + TARGET_COURSE + " 專屬智慧報名系統";
     document.getElementById('subTitleDisplay').innerHTML = "Bobby English School - " + TARGET_COURSE + " Enrollment Form";
     document.getElementById('dynamicBannerDisplay').innerHTML = TARGET_COURSE + " 專屬智慧報名系統";
     
@@ -866,15 +861,14 @@ function calculateTuition() {
         // 處理：Advance B/C 系列定值
         if (advancedDeadValues[courseKey]) {
             var adv = advancedDeadValues[courseKey];
-            // 🎯 Aegis 核心 UI 規範 5：選讀班別拆解兩行、去「班」字、幾何精準居中
             labelDisplay.innerHTML = "<div class='course-id'>" + adv.id + "</div><div class='course-zh'>" + adv.zhName + "</div>";
             
             var finalTotal = adv[discountRate.toString()] || adv["1.0"];
             
             document.getElementById('class_time').value = adv.time.replace(/<[^>]+>/g, '');
-            document.getElementById('sub_tuition').value = adv.t;
-            document.getElementById('sub_materials').value = adv.m;
-            document.getElementById('sub_misc').value = adv.ms;
+            document.getElementById('sub_tuition').value = Math.round(adv.t * discountRate);
+            document.getElementById('sub_materials').value = Math.round(adv.m * discountRate);
+            document.getElementById('sub_misc').value = Math.round(adv.ms * discountRate);
             
             totalInput.value = "$" + finalTotal;
 
@@ -888,7 +882,6 @@ function calculateTuition() {
         // 🎯 Aegis 核心 UI 規範 4：全項目【應繳總金額 = Math.round((基本學費 + 原價教材費 + 當期學雜費) * 折扣率)】
         if (courseDatabase[courseKey]) {
             var course = courseDatabase[courseKey];
-            // 🎯 兩行拆解去「班」字雙行呈現
             labelDisplay.innerHTML = "<div class='course-id'>" + course.id + "</div><div class='course-zh'>" + course.zhName + "</div>";
             document.getElementById('class_time').value = "每週二四 4:30-6:30 PM";
             
@@ -902,17 +895,16 @@ function calculateTuition() {
             // 🎯 全項目一律連動乘上折扣率並四捨五入！
             var finalTotal = Math.round(subTotal * discountRate);
 
-            document.getElementById('sub_tuition').value = tuitionTotal;
-            document.getElementById('sub_materials').value = materialsTotal;
-            document.getElementById('sub_misc').value = miscTotal;
+            // 🎯 後端 GAS 傳遞欄位自動扣算同等折扣，達到三表與後端 100% 絕對咬合！
+            document.getElementById('sub_tuition').value = Math.round(tuitionTotal * discountRate);
+            document.getElementById('sub_materials').value = Math.round(materialsTotal * discountRate);
+            document.getElementById('sub_misc').value = Math.round(miscTotal * discountRate);
             
             totalInput.value = "$" + finalTotal;
             timeDisplay.innerHTML = course.time;
             
-            // 🎯 去除「老朋友」字樣，統一顯示為享8折特惠或常態運算
-            var discountStr = (discountRate * 100).toString();
-            if (discountRate === 0.9) discountStr = "9";
-            if (discountRate === 0.8) discountStr = "8";
+            var discountStr = (discountRate * 10).toString();
+            if (discountRate === 1.0) discountStr = "10";
             
             var discountLabel = discountRate === 0.8 ? " <span style='color:red;'>(享8折特惠)</span>" : " (常態運算)";
 
