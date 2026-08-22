@@ -408,12 +408,13 @@
                         </tr>
                         <tr>
                             <th><span class="zh-title">學員身分標籤</span><span class="en-title">Student Identity</span></th>
-                            <td colspan="5">
-                                <div class="radio-group">
-                                    <label><input type="radio" name="student_identity" value="new" checked onchange="calculateTuition()"> 新生（需購買教材）</label>
-                                    <label><input type="radio" name="student_identity" value="old" onchange="calculateTuition()"> 舊生（無需購買教材）</label>
-                                </div>
-                            </td>
+<td colspan="5">
+    <div class="radio-group">
+        <label><input type="radio" name="student_identity" value="new" checked onchange="calculateTuition()"> 新生（需購買教材）</label>
+        <label><input type="radio" name="student_identity" value="old_with_mat" onchange="calculateTuition()"> 舊生（需購買教材）</label>
+        <label style="opacity: 0.5; cursor: not-allowed;"><input type="radio" name="student_identity" value="old_no_mat" disabled> 舊生（無需購買教材 - 本學期暫不開放）</label>
+    </div>
+</td>
                         </tr>
                         <tr id="standardDiscountRow">
                             <th><span class="zh-title">優惠方案配置</span><span class="en-title">Discount Plan</span></th>
@@ -615,7 +616,7 @@ function calculateTuition() {
         var pricePerLesson = 770;
         var lessons = 38;
         var rawTuition = pricePerLesson * lessons; // $29,260
-        var rawMaterials = (identity === 'new') ? 3520 : 0; // 新生 $3,520，舊生 $0
+        var rawMaterials = (identity === 'old_no_mat') ? 0 : 3520; // 38 堂預設皆含 $3,520 教材費
         var rawMisc = 60 * lessons; // $2,280
         
         var calcTuition = Math.round(rawTuition * discountRate);
@@ -628,14 +629,13 @@ function calculateTuition() {
         document.getElementById('sub_materials').value = calcMaterials;
         document.getElementById('sub_misc').value = calcMisc;
 
-        var idText = (identity === 'new') ? "新生" : "舊生";
+        var idText = (identity === 'new') ? "新生" : (identity === 'old_with_mat' ? "舊生(含教材)" : "舊生(免教材)");
         document.getElementById('calcPreview').innerHTML = "📚 <b>【" + idText + "】應繳總金額套用折扣後：NT$ " + grandTotal.toLocaleString() + " 元</b>";
     } catch (err) {
         console.error("Tuition calculation error:", err);
     }
 }
-
-function showImagePreview(input) {
+    function showImagePreview(input) {
     var container = document.getElementById('photoContainer');
     var uploadText = document.getElementById('uploadText');
     if (input.files && input.files[0]) {
