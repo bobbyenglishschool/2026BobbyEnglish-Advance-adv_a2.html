@@ -2,11 +2,9 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <!-- 🎯 全載具核心天線：確保行動裝置與 A4 紙張列印排版 100% 完美自適應 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>私立巴比美語短期補習班 | 專屬學員報名系統 (Advance A2)</title>
     
-    <!-- 引入專業雙語 Google Fonts 字型 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -17,7 +15,7 @@
             --uci-gold: #fecc07;
             --soft-red: #e74c3c;
             --card-bg: #f8fafc;
-            --border-color: #1b3d6d; /* 🎯 強制導向巴比深藍 */
+            --border-color: #1b3d6d;
             --text-main: #1e293b;
             --text-sub: #475569;
         }
@@ -51,7 +49,6 @@
             padding: 30px 40px;
         }
 
-        /* 🎯 抬頭最上方動態智慧生產字樣 */
         .dynamic-top-banner {
             font-size: 15px;
             font-weight: bold;
@@ -64,7 +61,6 @@
             display: inline-block;
         }
 
-        /* 經典頂部：左資料、右相片 */
         .header-section {
             display: flex;
             justify-content: space-between;
@@ -161,7 +157,6 @@
             margin-bottom: 15px;
         }
 
-        /* 🔒 Aegis 核心 UI 規範 1：所有表格與內格線 100% 飽滿巴比深藍色實體化 */
         table {
             width: 100%;
             border-collapse: collapse !important;
@@ -226,7 +221,6 @@
             justify-content: flex-start;
         }
 
-        /* 🎯 Aegis 核心 UI 規範 5：選讀班別拆解兩行、去「班」字、100% 幾何精準居中 */
         .static-course-display {
             font-weight: bold;
             color: var(--uci-blue);
@@ -250,7 +244,6 @@
             margin-top: 2px;
         }
 
-        /* 🎯 Aegis 核心 UI 規範 2：DOB 原生 Date Picker 靠右置中並預留 12px 安全氣墊防撞 */
         input[type="date"].text-input {
             display: block; 
             line-height: normal;
@@ -509,7 +502,6 @@
 <body>
 
 <div class="page-container">
-    <!-- 🎯 採用單通道純淨 GAS 連線機制，免除 FormSubmit 雙重重定向與重複發信 -->
     <form id="enrollmentForm" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" id="formSubject" name="_subject" value="【專屬報名登記】巴比美語單一課程填報通知">
@@ -523,7 +515,7 @@
         <input type="hidden" id="summer_weeks_selected" name="summer_weeks_selected" value="">
         <input type="hidden" id="summer_pm_selected" name="summer_pm_selected" value="">
 
-        <!-- ================= PAGE 1 ================= -->
+        <!-- PAGE 1 -->
         <div class="page page1">
             <div id="dynamicBannerDisplay" class="dynamic-top-banner">載入中...</div>
 
@@ -565,7 +557,6 @@
                         </tr>
                         <tr>
                             <th><span class="zh-title">出生日期</span><span class="en-title">Date of Birth</span></th>
-                            <!-- 🎯 DOB 靠右且留 12px 防撞氣墊，絕不碰撞右邊框線！ -->
                             <td><input type="date" name="dob" class="text-input" required></td>
                             <th><span class="zh-title">就讀學校</span><span class="en-title">School</span></th>
                             <td><input type="text" name="school" class="text-input" placeholder=""></td>
@@ -605,11 +596,9 @@
                         <tr>
                             <th><span class="zh-title">就讀班別</span><span class="en-title">Course</span></th>
                             <td colspan="2">
-                                <!-- 🎯 核心 UI 規範 3 & 5：選讀班別拆解兩行、去「班」字、100% 精準居中 -->
                                 <div id="courseLabelDisplay" class="static-course-display">未設定課程</div>
                             </td>
                             <th><span class="zh-title">標準上課時段</span><span class="en-title">Schedule</span></th>
-                            <!-- 🎯 核心 UI 規範 3：標準時段幾何對稱、上下左右 100% 居中 -->
                             <td colspan="2" id="timeDisplay" style="padding: 0; text-align: center; vertical-align: middle;">載入中...</td>
                         </tr>
                         <tr id="standardDiscountRow">
@@ -619,7 +608,6 @@
                                     <label><input type="radio" name="discount_plan" value="1.0" checked onchange="calculateTuition()"> 常態收費原價 (Full Price)</label>
                                     <label><input type="radio" name="discount_plan" value="0.9" onchange="calculateTuition()"> 9 折優惠 (10% OFF)</label>
                                     <label><input type="radio" name="discount_plan" value="0.85" onchange="calculateTuition()"> 85 折優惠 (15% OFF)</label>
-                                    <!-- 🎯 核心 UI 規範 6：去身分標籤，統一為「✨ 8 折優惠」 -->
                                     <label><input type="radio" name="discount_plan" value="0.8" onchange="calculateTuition()"> ✨ 8 折優惠 (20% OFF)</label>
                                 </div>
                             </td>
@@ -689,7 +677,7 @@
             </div>
         </div>
 
-        <!-- ================= PAGE 2 ================= -->
+        <!-- PAGE 2 -->
         <div class="page page2">
             <h2 class="terms-header">報名條款與家長同意書<br><span style="font-size: 13.5px; font-weight: 500; color: var(--text-sub); display: block; margin-top: 4px;">Terms & Conditions (Bobby English School Policies)</span></h2>
             
@@ -735,7 +723,6 @@
                     </div>
                     <div class="signature-row">
                         <span>日期 Date</span>
-                        <!-- 🎯 核心 UI 規範 5：審閱期攜回日期即為家長開頁當天日期 -->
                         <input type="date" name="parent_sig_date" id="parentSigDate" class="signature-input" required>
                     </div>
                 </div>
@@ -760,7 +747,6 @@
 </div>
 
 <script>
-// ===== 核心報名表對應資料庫 =====
 var courseDatabase = {
     "Advance A1": { 
         id: "Advance A1",
@@ -768,7 +754,6 @@ var courseDatabase = {
         time: "<div style='display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 4px 0;'><div style='font-weight:800; color:var(--uci-blue); font-size:13px; line-height:1.2;'><span class='no-orphan'>每週三、五</span></div><div style='font-weight:700; color:var(--uci-blue); font-size:11.5px; line-height:1.2; margin-top:3px;'><span class='no-orphan'>4:30 PM - 6:30 PM</span></div></div>", 
         lessons: 34, price: 770, materials: 3520, misc: 60 
     },
-    // 🎯 精準修正：教材費用已由 $3,826 升級更新為 $3,520 ($2,770 + $750)
     "Advance A2": { 
         id: "Advance A2",
         zhName: "兒童進階美語", 
@@ -777,29 +762,22 @@ var courseDatabase = {
     }
 };
 
-// 🎯 去身分標籤：統一標準，不留「新進/晉升」字樣
 var advancedDeadValues = {
     "Advance B1": { id: "Advance B1", zhName: "青少年進階美語", "1.0": 36680, "0.9": 33012, "0.85": 31178, "0.8": 29344, time: "<div style='display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 4px 0;'><div style='font-weight:800; color:var(--uci-blue); font-size:13px; line-height:1.2;'><span class='no-orphan'>每週二、四</span></div><div style='font-weight:700; color:var(--uci-blue); font-size:11.5px; line-height:1.2; margin-top:3px;'><span class='no-orphan'>7:00 PM - 9:00 PM</span></div></div>", t: 31160, m: 3240, ms: 2280 },
     "Advance B2": { id: "Advance B2", zhName: "青少年進階美語", "1.0": 36680, "0.9": 33012, "0.85": 31178, "0.8": 29344, time: "<div style='display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 4px 0;'><div style='font-weight:800; color:var(--uci-blue); font-size:13px; line-height:1.2;'><span class='no-orphan'>每週二、四</span></div><div style='font-weight:700; color:var(--uci-blue); font-size:11.5px; line-height:1.2; margin-top:3px;'><span class='no-orphan'>7:00 PM - 9:00 PM</span></div></div>", t: 31160, m: 3240, ms: 2280 },
     "Advance C1": { id: "Advance C1", zhName: "青少年進階美語", "1.0": 17140, "0.9": 15426, "0.85": 14569, "0.8": 13712, time: "<div style='display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 4px 0;'><div style='font-weight:800; color:var(--uci-blue); font-size:13px; line-height:1.2;'><span class='no-orphan'>每週一晚上</span></div><div style='font-size:11px; opacity:0.9; margin-top:1px;'><span class='no-orphan'>7:00 PM - 9:00 PM</span></div></div>", t: 14450, m: 1840, ms: 850 }
 };
 
-// ==========================================
-// ⭐ Joy 核心修改特區：目標課程綁定
-// ==========================================
 var TARGET_COURSE = "Advance A2"; 
 
-// 頁面初始化自動綁定與運算
 window.onload = function() {
     document.getElementById('course_name_hidden').value = TARGET_COURSE;
     document.getElementById('formSubject').value = "【巴比單一課程報名】" + TARGET_COURSE + " 報名通知";
     
-    // 🚀 抬頭自動變魔術晶片：主標題與動態 Banner 自動連動
     document.getElementById('mainTitleDisplay').innerHTML = "私立巴比美語短期補習班 ｜ " + TARGET_COURSE + " 專屬智慧報名系統";
     document.getElementById('subTitleDisplay').innerHTML = "Bobby English School - " + TARGET_COURSE + " Enrollment Form";
     document.getElementById('dynamicBannerDisplay').innerHTML = TARGET_COURSE + " 專屬智慧報名系統";
     
-    // 🎯 自動時光天線：自動帶入當天日期至家長與老師簽名處
     var today = new Date().toISOString().split('T')[0];
     if (document.getElementById('parentSigDate')) document.getElementById('parentSigDate').value = today;
     if (document.getElementById('teacherSigDate')) document.getElementById('teacherSigDate').value = today;
@@ -821,7 +799,6 @@ function calculateTuition() {
         var activeRadio = document.querySelector('input[name="discount_plan"]:checked');
         if (activeRadio) discountRate = parseFloat(activeRadio.value);
 
-        // 處理：2026 暑期班
         if (courseKey === "2026 暑期班") {
             labelDisplay.innerHTML = "<div class='course-id'>☀️ 2026 Summer Classes</div><div class='course-zh'>暑期密集英語營 (18堂/7-8月)</div>";
             summerBox.style.display = "block";
@@ -859,7 +836,6 @@ function calculateTuition() {
         summerBox.style.display = "none";
         discountRow.style.opacity = "1";
 
-        // 處理：Advance B/C 系列定值
         if (advancedDeadValues[courseKey]) {
             var adv = advancedDeadValues[courseKey];
             labelDisplay.innerHTML = "<div class='course-id'>" + adv.id + "</div><div class='course-zh'>" + adv.zhName + "</div>";
@@ -880,7 +856,6 @@ function calculateTuition() {
             return;
         }
 
-        // 🎯 Aegis 核心 UI 規範 4：全項目【應繳總金額 = Math.round((基本學費 + 原價教材費 + 當期學雜費) * 折扣率)】
         if (courseDatabase[courseKey]) {
             var course = courseDatabase[courseKey];
             labelDisplay.innerHTML = "<div class='course-id'>" + course.id + "</div><div class='course-zh'>" + course.zhName + "</div>";
@@ -890,13 +865,9 @@ function calculateTuition() {
             var materialsTotal = course.materials;           // 3,520 ($2,770 + $750)
             var miscTotal = course.misc * course.lessons;     // 60 * 38 = 2,280
             
-            // 全項目未折總計 = 29,260 + 3,520 + 2,280 = 35,060
             var subTotal = tuitionTotal + materialsTotal + miscTotal;
-            
-            // 🎯 全項目一律連動乘上折扣率並四捨五入！
             var finalTotal = Math.round(subTotal * discountRate);
 
-            // 🎯 後端 GAS 傳遞欄位自動扣算同等折扣，達到三表與後端 100% 絕對咬合！
             document.getElementById('sub_tuition').value = Math.round(tuitionTotal * discountRate);
             document.getElementById('sub_materials').value = Math.round(materialsTotal * discountRate);
             document.getElementById('sub_misc').value = Math.round(miscTotal * discountRate);
@@ -938,7 +909,6 @@ function showImagePreview(input) {
     }
 }
 
-// 🎯 純淨單通道 GAS 送出控制，徹底移除 FormSubmit，避免重複發信與頁面重定向衝突
 document.getElementById('enrollmentForm').addEventListener('submit', function(e) {
     e.preventDefault(); 
     var form = this;
