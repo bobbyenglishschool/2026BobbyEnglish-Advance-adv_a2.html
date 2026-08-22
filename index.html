@@ -49,7 +49,8 @@
 
         .dynamic-top-banner {
             font-size: 15px;
-            font-weight: bold;
+            font-weight: 800;
+            letter-spacing: 0.5px;
             color: var(--uci-blue);
             background-color: #e6f0fa;
             padding: 6px 14px;
@@ -69,10 +70,11 @@
         }
 
         .title-area { flex: 1; padding-right: 20px; min-width: 0; }
-        .main-title { color: var(--uci-blue); font-size: 21px; margin: 0 0 5px 0; font-weight: 800; }
-        .sub-title { color: var(--uci-blue); font-size: 14px; margin: 0 0 15px 0; font-weight: 500; }
-        .contact-info { font-size: 11.5px; color: var(--text-sub); line-height: 1.6; }
-        .contact-info p { margin: 2px 0; }
+        .main-title { color: var(--uci-blue); font-size: 21px; margin: 0 0 5px 0; font-weight: 900; letter-spacing: 0.3px; }
+        .sub-title { color: var(--uci-blue); font-size: 13.5px; margin: 0 0 15px 0; font-weight: 600; letter-spacing: 0.5px; opacity: 0.9; }
+        .contact-info { font-size: 12px; color: var(--text-sub); line-height: 1.65; }
+        .contact-info p { margin: 2px 0; font-weight: 500; }
+        .contact-info strong { font-weight: 800; color: var(--uci-blue); }
 
         .photo-box {
             width: 2in;
@@ -83,6 +85,7 @@
             justify-content: center;
             text-align: center;
             font-size: 12px;
+            font-weight: 700;
             color: var(--uci-blue);
             flex-shrink: 0;
             background-color: #fafafa;
@@ -103,6 +106,7 @@
             padding: 8px 14px;
             font-size: 15px;
             font-weight: 800;
+            letter-spacing: 0.5px;
             margin: 20px 0 10px 0;
             display: inline-block;
             border-radius: 6px 6px 0 0;
@@ -120,10 +124,10 @@
             background-color: #ffffff;
         }
 
-        th, td { border: 1px solid #1b3d6d !important; padding: 6px 8px; vertical-align: middle; word-break: break-word; }
-        th { background-color: #f0f4f8; color: var(--uci-blue); text-align: center; width: 18%; line-height: 1.4; font-weight: 700; padding: 6px 4px; }
-        th span.zh-title { font-size: 13.5px; display: block; margin-bottom: 2px; font-weight: 700; }
-        th span.en-title { font-size: 10.5px; display: block; font-weight: 400; opacity: 0.85; }
+        th, td { border: 1px solid #1b3d6d !important; padding: 8px 10px; vertical-align: middle; word-break: break-word; }
+        th { background-color: #f0f4f8; color: var(--uci-blue); text-align: center; width: 18%; font-weight: 800; }
+        th span.zh-title { font-size: 13.5px; display: block; margin-bottom: 2px; font-weight: 800; letter-spacing: 0.3px; }
+        th span.en-title { font-size: 10.5px; display: block; font-weight: 500; opacity: 0.82; letter-spacing: 0.2px; }
         td { height: 45px; position: relative; text-align: left; }
 
         .text-input, .static-course-display {
@@ -133,7 +137,8 @@
             height: 100%;
             outline: none;
             font-family: inherit;
-            font-size: 13px;
+            font-size: 13.5px;
+            font-weight: 600;
             color: inherit;
             padding: 4px 8px;
             text-align: left;
@@ -143,81 +148,79 @@
         }
 
         .static-course-display {
-            font-weight: bold;
             color: var(--uci-blue);
-            font-size: 13.5px;
             display: flex;
             flex-direction: column;
             align-items: center !important;
             justify-content: center !important;
             text-align: center !important;
-            line-height: 1.3;
-            padding: 4px 0;
+            height: 100%;
         }
         
-        .static-course-display .course-id { font-size: 14px; font-weight: 800; }
-        .static-course-display .course-zh { font-size: 12px; font-weight: 600; margin-top: 2px; }
+        .static-course-display .course-id { font-size: 14.5px; font-weight: 800; line-height: 1.2; letter-spacing: 0.5px; }
+        .static-course-display .course-zh { font-size: 12.5px; font-weight: 700; margin-top: 3px; line-height: 1.2; letter-spacing: 0.3px; }
 
         input[type="date"].text-input {
             display: block; 
             line-height: normal;
             padding-right: 12px !important;
-            font-size: 11.5px !important;
+            font-size: 12px !important;
             letter-spacing: -0.2px;
             text-align: right !important;
             width: 100%;
             height: 100%;
             box-sizing: border-box;
+            font-weight: 700;
         }
 
-        input[name="receipt_no"].text-input { font-size: 11.5px !important; padding: 4px 6px; }
+        input[name="receipt_no"].text-input { font-size: 12px !important; padding: 4px 6px; }
         .text-input:focus { background-color: rgba(254, 204, 7, 0.15); }
 
-        .radio-group { display: flex; align-items: center; justify-content: flex-start; gap: 12px; padding-left: 4px; height: 100%; flex-wrap: wrap; }
-        .radio-group label { display: flex; align-items: center; gap: 4px; cursor: pointer; white-space: nowrap; }
+        .radio-group { display: flex; align-items: center; justify-content: flex-start; gap: 14px; padding-left: 4px; height: 100%; flex-wrap: wrap; }
+        .radio-group label { display: flex; align-items: center; gap: 5px; cursor: pointer; white-space: nowrap; font-size: 13px; font-weight: 700; color: var(--text-main); }
 
-        .payment-inline-row { display: flex; align-items: center; justify-content: flex-start; gap: 8px; padding-left: 4px; padding-right: 12px; height: 100%; width: 100%; flex-wrap: nowrap; }
+        .payment-inline-row { display: flex; align-items: center; justify-content: flex-start; gap: 10px; padding-left: 4px; padding-right: 12px; height: 100%; width: 100%; flex-wrap: nowrap; font-size: 13px; font-weight: 700; }
         .payment-inline-row label { display: flex; align-items: center; gap: 4px; cursor: pointer; white-space: nowrap; }
 
         .no-orphan { display: inline-block; white-space: nowrap; }
 
         .offer-box {
-            background-color: rgba(254, 204, 7, 0.15);
-            border: 1px dashed var(--uci-gold);
+            background-color: rgba(254, 204, 7, 0.18);
+            border: 1.5px dashed var(--uci-gold);
             padding: 12px 16px;
             margin: 15px 0;
             border-radius: 6px;
-            font-weight: bold;
-            color: #997a00;
+            font-weight: 800;
+            color: #856400;
             text-align: center;
-            font-size: 14px;
-            line-height: 1.6;
+            font-size: 14.5px;
+            letter-spacing: 0.3px;
         }
 
-        .terms-header { text-align: center; color: var(--uci-blue); border-bottom: 2.5px solid var(--uci-blue); padding-bottom: 12px; margin-bottom: 22px; font-size: 19px; font-weight: 800; letter-spacing: 0.5px; }
+        .terms-header { text-align: center; color: var(--uci-blue); border-bottom: 2.5px solid var(--uci-blue); padding-bottom: 12px; margin-bottom: 22px; font-size: 19.5px; font-weight: 900; letter-spacing: 0.5px; }
 
         .privacy-statement {
             background-color: #f0f4f8;
             padding: 14px 18px;
-            border-left: 4px solid var(--uci-blue);
+            border-left: 4.5px solid var(--uci-blue);
             font-size: 13.5px;
             margin-bottom: 22px;
             border-radius: 6px;
             text-align: justify;
             line-height: 1.65;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+            font-weight: 500;
             border-top: 1px solid #1b3d6d !important;
             border-right: 1px solid #1b3d6d !important;
             border-bottom: 1px solid #1b3d6d !important;
         }
+        .privacy-statement strong { font-weight: 800; color: var(--uci-blue); }
 
         .terms-list { font-size: 13.5px; color: var(--text-main); text-align: justify; }
-        .terms-list .term-item { margin-bottom: 18px; line-height: 1.65; background: #ffffff; padding: 10px 14px; border-radius: 6px; border: 1px solid #1b3d6d !important; }
-        .terms-list strong { color: var(--uci-blue); font-size: 14px; font-weight: 800; }
+        .terms-list .term-item { margin-bottom: 18px; line-height: 1.68; background: #ffffff; padding: 14px 18px; border-radius: 6px; border: 1px solid #1b3d6d !important; font-weight: 500; }
+        .terms-list strong { color: var(--uci-blue); font-size: 14px; font-weight: 800; letter-spacing: 0.3px; }
 
-        .agreement-text { text-align: center; font-size: 14.5px; font-weight: 800; color: var(--soft-red); margin: 25px 0 20px 0; line-height: 1.6; }
+        .agreement-text { text-align: center; font-size: 14.5px; font-weight: 800; color: var(--soft-red); margin: 25px 0 20px 0; line-height: 1.6; letter-spacing: 0.3px; }
 
-        /* 🎯 需求 1 修改：採用畫布簽名與清除按鈕結構 */
         .dual-signature-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; width: 100%; margin-top: 15px; margin-bottom: 20px; }
         .signature-block { width: 48%; display: flex; flex-direction: column; }
         .signature-label { font-size: 13.5px; color: var(--uci-blue); font-weight: 800; margin-bottom: 8px; letter-spacing: 0.3px; }
@@ -231,18 +234,19 @@
             color: var(--uci-blue);
             border: none;
             padding: 15px 40px;
-            font-size: 17px;
-            font-weight: 800;
+            font-size: 17.5px;
+            font-weight: 900;
+            letter-spacing: 0.8px;
             border-radius: 30px;
             cursor: pointer;
             width: 100%;
-            max-width: 400px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.2s, box-shadow 0.2s;
+            max-width: 420px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+            transition: all 0.2s ease;
         }
 
-        .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(0,0,0,0.15); }
-        .submit-btn:disabled { background-color: #cccccc !important; color: #666666 !important; cursor: not-allowed; transform: none !important; }
+        .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(0,0,0,0.18); }
+        .submit-btn:disabled { background-color: #cbd5e1 !important; color: #666666 !important; cursor: not-allowed; transform: none !important; }
 
         .extra-summer-box {
             background-color: #f9fbfd;
@@ -256,20 +260,24 @@
 
         .extra-summer-title { color: var(--uci-blue); font-weight: bold; margin-bottom: 10px; font-size: 14px; }
 
+        .top-print-bar { display: none; background: var(--uci-blue); color: #fff; padding: 12px; text-align: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.15); font-weight: 700; }
+        .top-print-bar button { background: var(--uci-gold); color: var(--uci-blue); border: none; padding: 8px 20px; font-weight: 800; border-radius: 20px; cursor: pointer; font-size: 14px; margin-left: 10px; }
+
         @media print {
             @page { size: A4 portrait; margin: 10mm 15mm; }
             body { background-color: transparent; padding: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
             .page-container { box-shadow: none; max-width: 100%; }
             .page1 { break-after: page; }
             .page { padding: 0; }
-            .submit-btn-container, .canvas-clear-btn { display: none !important; }
+            .submit-btn-container, .top-print-bar, .canvas-clear-btn { display: none !important; }
             .extra-summer-box { border: 1px solid #1b3d6d !important; background-color: transparent; }
             table, th, td { border: 1px solid #1b3d6d !important; }
+            .signature-canvas-container { border: 1px solid var(--uci-blue) !important; }
         }
 
         @media (max-width: 768px) {
             body { padding: 8px; }
-            .page { padding: 15px 12px; }
+            .page { padding: 18px 14px; }
             .page-container { width: 100%; overflow-x: visible; }
             .header-section { flex-direction: row; gap: 10px; }
             .dual-signature-row { flex-direction: column; gap: 15px; }
@@ -280,13 +288,16 @@
 </head>
 <body>
 
+<div id="topPrintBar" class="top-print-bar">
+    📄 正在預覽填妥之報名表 ── <button onclick="window.print()">🖨️ 點此直接列印 / 存成 PDF 紙本</button>
+</div>
+
 <div class="page-container">
-    <form id="enrollmentForm" method="POST" enctype="multipart/form-data">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" id="formSubject" name="_subject" value="【專屬報名登記】巴比美語單一課程填報通知">
+    <form id="enrollmentForm">
+        <input type="hidden" id="formSubject" name="_subject" value="【專屬報名登記】巴比美語 Advance A2 課程填報通知">
         <input type="hidden" id="printLinkInput" name="查看並印出完整A4報名表" value="">
 
-        <input type="hidden" id="course_name_hidden" name="course_name" value="">
+        <input type="hidden" id="course_name_hidden" name="course_name" value="Advance A2">
         <input type="hidden" id="class_time" name="class_time" value="">
         <input type="hidden" id="sub_tuition" name="sub_tuition" value="0">
         <input type="hidden" id="sub_materials" name="sub_materials" value="0">
@@ -299,12 +310,12 @@
 
         <!-- PAGE 1 -->
         <div class="page page1">
-            <div id="dynamicBannerDisplay" class="dynamic-top-banner">載入中...</div>
+            <div id="dynamicBannerDisplay" class="dynamic-top-banner">Advance A2 專屬智慧報名系統</div>
 
             <div class="header-section">
                 <div class="title-area">
-                    <h1 class="main-title" id="mainTitleDisplay">私立巴比美語短期補習班 ｜ 全能智慧校務報名系統</h1>
-                    <h2 class="sub-title" id="subTitleDisplay">Bobby English School - Smart Course Enrollment Form</h2>
+                    <h1 class="main-title" id="mainTitleDisplay">私立巴比美語短期補習班 ｜ Advance A2 專屬智慧報名系統</h1>
+                    <h2 class="sub-title" id="subTitleDisplay">Bobby English School - Advance A2 Enrollment Form</h2>
                     <div class="contact-info">
                         <p><strong>電話 / Phone：</strong>03-2161338</p>
                         <p><strong>官方 / Line：</strong>@bobbyenglish</p>
@@ -339,13 +350,13 @@
                         </tr>
                         <tr>
                             <th><span class="zh-title">出生日期</span><span class="en-title">Date of Birth</span></th>
-                            <td><input type="date" name="dob" class="text-input" required></td>
+                            <td><input type="date" id="dob" name="dob" class="text-input" required></td>
                             <th><span class="zh-title">就讀學校</span><span class="en-title">School</span></th>
-                            <td><input type="text" name="school" class="text-input" placeholder=""></td>
+                            <td><input type="text" id="school" name="school" class="text-input" placeholder=""></td>
                             <th><span class="zh-title">年級</span><span class="en-title">Grade</span></th>
                             <td>
-                                <div style="display: flex; align-items: center; justify-content: flex-start; padding: 0 8px; height: 100%;">
-                                    第 <input type="text" name="grade" style="border: none; border-bottom: 1px solid #333; width: 50px; text-align: center; margin: 0 5px; background: transparent; outline: none;"> 年級
+                                <div style="display: flex; align-items: center; justify-content: flex-start; padding: 0 8px; height: 100%; font-weight: 700;">
+                                    第 <input type="text" id="grade" name="grade" style="border: none; border-bottom: 1.5px solid #333; width: 50px; text-align: center; margin: 0 5px; background: transparent; outline: none; font-weight: 800; font-size: 13.5px;"> 年級
                                 </div>
                             </td>
                         </tr>
@@ -355,17 +366,17 @@
                             <th><span class="zh-title">與學生關係</span><span class="en-title">Relationship</span></th>
                             <td><input type="text" name="relation" class="text-input" placeholder="" required></td>
                             <th><span class="zh-title">聯絡電話</span><span class="en-title">Phone Number</span></th>
-                            <td><input type="tel" name="phone" class="text-input" placeholder="" required></td>
+                            <td><input type="tel" id="phone" name="phone" class="text-input" placeholder="" required></td>
                         </tr>
                         <tr>
                             <th><span class="zh-title">電子信箱</span><span class="en-title">E-mail</span></th>
-                            <td colspan="3"><input type="email" name="email" class="text-input" placeholder=""></td>
+                            <td colspan="3"><input type="email" id="email" name="email" class="text-input" placeholder=""></td>
                             <th><span class="zh-title">LINE ID</span><span class="en-title">LINE ID</span></th>
                             <td><input type="text" name="line_id" class="text-input" placeholder=""></td>
                         </tr>
                         <tr>
                             <th><span class="zh-title">通訊地址</span><span class="en-title">Mailing Address</span></th>
-                            <td colspan="5"><input type="text" name="address" class="text-input" placeholder="" required></td>
+                            <td colspan="5"><input type="text" id="address" name="address" class="text-input" placeholder="" required></td>
                         </tr>
                     </tbody>
                 </table>
@@ -378,10 +389,31 @@
                         <tr>
                             <th><span class="zh-title">就讀班別</span><span class="en-title">Course</span></th>
                             <td colspan="2">
-                                <div id="courseLabelDisplay" class="static-course-display">未設定課程</div>
+                                <div id="courseLabelDisplay" class="static-course-display">
+                                    <div class="course-id">Advance A2</div>
+                                    <div class="course-zh">知識探險與邏輯寫作</div>
+                                </div>
                             </td>
                             <th><span class="zh-title">標準上課時段</span><span class="en-title">Schedule</span></th>
-                            <td colspan="2" id="timeDisplay" style="padding: 0; text-align: center; vertical-align: middle;">載入中...</td>
+                            <td colspan="2" id="timeDisplay" style="padding: 0; text-align: center; vertical-align: middle;">
+                                <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 4px 0;">
+                                    <div style="font-weight:800; color:var(--uci-blue); font-size:13.5px; line-height:1.2;">
+                                        <span class="no-orphan">每週二、四</span>
+                                    </div>
+                                    <div style="font-weight:700; color:var(--uci-blue); font-size:11.5px; line-height:1.2; margin-top:3px;">
+                                        <span class="no-orphan">4:30 PM - 6:30 PM (2小時/堂)</span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><span class="zh-title">學員身分標籤</span><span class="en-title">Student Identity</span></th>
+                            <td colspan="5">
+                                <div class="radio-group">
+                                    <label><input type="radio" name="student_identity" value="new" checked onchange="calculateTuition()"> 新生（需購買教材）</label>
+                                    <label><input type="radio" name="student_identity" value="old" onchange="calculateTuition()"> 舊生（無需購買教材）</label>
+                                </div>
+                            </td>
                         </tr>
                         <tr id="standardDiscountRow">
                             <th><span class="zh-title">優惠方案配置</span><span class="en-title">Discount Plan</span></th>
@@ -398,30 +430,7 @@
                 </table>
             </div>
 
-            <div class="extra-summer-box" id="summerConfigBox">
-                <div class="extra-summer-title">☀️ 暑期課程特別配置艙 (Summer Options)</div>
-                <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap; font-size: 13px; padding-left: 8px;">
-                    <div>
-                        <b>1. 選擇報名週數：</b>
-                        <select id="summerWeeks" style="width: 150px; display: inline-block; border: 1px solid #1b3d6d; height: 30px; border-radius: 4px;" onchange="calculateTuition()">
-                            <option value="1">1 週課程 / 1 Week</option>
-                            <option value="2">2 週課程 / 2 Weeks</option>
-                            <option value="3">3 週 (享8折) / 3 Weeks</option>
-                            <option value="4">4 週 (享8折) / 4 Weeks</option>
-                            <option value="5">5 週 (享8折) / 5 Weeks</option>
-                            <option value="6">6 週 (享8折) / 6 Weeks</option>
-                        </select>
-                    </div>
-                    <div>
-                        <b>2. 加購下午英文複習班：</b>
-                        <label style="cursor: pointer; margin-left: 10px;"><input type="checkbox" id="summerPM" onchange="calculateTuition()"> 加購下午班 (1:30-4:30p.m.)</label>
-                    </div>
-                </div>
-            </div>
-
-            <div class="offer-box" id="calcPreview">
-                核心大腦即時計算中...
-            </div>
+            <div class="offer-box" id="calcPreview">核心大腦即時計算中...</div>
 
             <div class="section-title">補習班行政確認欄 Office Use Only</div>
             <div class="table-responsive-wrapper">
@@ -429,21 +438,21 @@
                     <tbody>
                         <tr>
                             <th><span class="zh-title">應繳總金額</span><span class="en-title">Total Amount</span></th>
-                            <td><input type="text" id="total_amount" name="total_amount" class="text-input" style="font-weight: bold; color: #c00; font-size: 16px;" placeholder="$" readonly></td>
+                            <td><input type="text" id="total_amount" name="total_amount" class="text-input" style="font-weight: 900; color: #c00; font-size: 16.5px;" placeholder="$" readonly></td>
                             <th><span class="zh-title">付款方式</span><span class="en-title">Payment Method</span></th>
                             <td colspan="3">
                                 <div class="payment-inline-row">
                                     <label><input type="radio" name="payment_method" value="現金" checked> 現金 Cash</label>
-                                    <label style="display: flex; align-items: center; gap: 2px;">
+                                    <label style="display: flex; align-items: center; gap: 4px;">
                                         <input type="radio" name="payment_method" value="銀行轉帳"> 銀行轉帳(後五碼)：
-                                        <input type="text" name="transfer_code" style="border: none; border-bottom: 1.5px solid #333; width: 50px; background: transparent; outline: none; text-align: center; font-size: 13px; height: 22px; padding: 0; margin-right: 8px;">
+                                        <input type="text" name="transfer_code" style="border: none; border-bottom: 1.5px solid #333; width: 60px; background: transparent; outline: none; text-align: center; font-size: 13.5px; font-weight: 800;">
                                     </label>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <th><span class="zh-title">經辦人員</span><span class="en-title">Staff Name</span></th>
-                            <td><input type="text" name="staff_name" class="text-input" value="Joy"></td>
+                            <td><input type="text" name="staff_name" class="text-input" value="Joy" style="font-weight: 800;"></td>
                             <th><span class="zh-title">收據編號</span><span class="en-title">Receipt No.</span></th>
                             <td><input type="text" name="receipt_no" class="text-input" placeholder="R-2026-XXXX"></td>
                             <th><span class="zh-title">教材發放狀況</span><span class="en-title">Material Status</span></th>
@@ -461,43 +470,43 @@
 
         <!-- PAGE 2 -->
         <div class="page page2">
-            <h2 class="terms-header">報名條款與家長同意書<br><span style="font-size: 13.5px; font-weight: 500; color: var(--text-sub); display: block; margin-top: 4px;">Terms & Conditions (Bobby English School Policies)</span></h2>
+            <h2 class="terms-header">報名條款與家長同意書<br><span style="font-size: 13.5px; font-weight: 600; color: var(--text-sub); display: block; margin-top: 4px; letter-spacing: 0.5px;">Terms & Conditions (Bobby English School Policies)</span></h2>
             
             <div class="privacy-statement">
                 <strong>個資保護聲明 / Privacy Statement：</strong><br>
                 本班收集之個人資料僅供課程聯繫與行政管理使用，絕不外洩。符合中華民國個人資料保護法規範。<br>
-                <span style="color: var(--text-sub); display: block; margin-top: 3px;">All personal data collected by Bobby English School is strictly used for course communication and administrative purposes in accordance with the Personal Data Protection Act of the R.O.C. and will never be disclosed to third parties.</span>
+                <span style="color: var(--text-sub); font-size: 11.5px; display: block; margin-top: 3px; font-weight: 400;">All personal data collected by Bobby English School is strictly used for course communication and administrative purposes in accordance with the Personal Data Protection Act of the R.O.C. and will never be disclosed to third parties.</span>
             </div>
 
             <div class="terms-list">
                 <div class="term-item">
                     <strong>1. 審閱權與退費規定 / Refund Policy：</strong><br>
                     依據「桃園市短期補習班退費管理自治條例」規定辦理。家長攜回審閱期至少五日。開課前30日前退費者，退還全額；開課前1日至29日退費者，退還90%；開課後5日內要求退費者，退還80%；上課未逾全期1/3期間內要求退費者，退還50%；超過全期1/3學期者不予退費。教材發放後亦不予退還。<br>
-                    <span style="color: var(--text-sub); display: block; margin-top: 4px;">Refunds are processed in accordance with the "Taoyuan Short-term Cram School Refund Management Regulations." Parents have at least a 5-day contract review period. A 100% refund is issued if requested 30 days prior to the course start date; a 90% refund if requested 1 to 29 days prior; an 80% refund within the first 5 days of class; a 50% refund if requested after the 6th day but before completing 1/3 of the total course duration. No refunds will be issued after 1/3 of the course duration has passed. No refunds on textbook or material fees once distributed.</span>
+                    <span style="color: var(--text-sub); font-size: 11.5px; display: block; margin-top: 4px; font-weight: 400; line-height: 1.5;">Refunds are processed in accordance with the "Taoyuan Short-term Cram School Refund Management Regulations." Parents have at least a 5-day contract review period. A 100% refund is issued if requested 30 days prior to the course start date; a 90% refund if requested 1 to 29 days prior; an 80% refund within the first 5 days of class; a 50% refund if requested after the 6th day but before completing 1/3 of the total course duration. No refunds will be issued after 1/3 of the course duration has passed. No refunds on textbook or material fees once distributed.</span>
                 </div>
                 <div class="term-item">
                     <strong>2. 請假與補課 / Leave & Make-up Lessons：</strong><br>
                     因事或病假缺席者，請於上課前兩小時透過官方 LINE 或電話完成請假。完成請假者，本班將提供一對一或小組補課、輔導。無故缺課者（曠課）不予補課與退費。<br>
-                    <span style="color: var(--text-sub); display: block; margin-top: 4px;">In case of sick leave or personal leave, please notify the school via our official LINE account or phone at least 2 hours before class. For validated absences, the school will arrange one-on-one or small-group make-up tutoring. No make-up lessons or refunds will be provided for unexcused absences (truancy).</span>
+                    <span style="color: var(--text-sub); font-size: 11.5px; display: block; margin-top: 4px; font-weight: 400; line-height: 1.5;">In case of sick leave or personal leave, please notify the school via our official LINE account or phone at least 2 hours before class. For validated absences, the school will arrange one-on-one or small-group make-up tutoring. No make-up lessons or refunds will be provided for unexcused absences (truancy).</span>
                 </div>
                 <div class="term-item">
                     <strong>3. 安全與公共責任 / Safety & Public Liability Insurance：</strong><br>
                     為維護學生安全，下課後請家長按時前來接送。本補習班公共安全設施、消防設備以及公共意外責任險均嚴格符合政府法令規範。<br>
-                    <span style="color: var(--text-sub); display: block; margin-top: 4px;">To ensure student safety, parents are requested to pick up their children on time after class. Our school's public safety facilities, fire safety equipment, and public liability insurance strictly comply with government laws and regulations.</span>
+                    <span style="color: var(--text-sub); font-size: 11.5px; display: block; margin-top: 4px; font-weight: 400; line-height: 1.5;">To ensure student safety, parents are requested to pick up their children on time after class. Our school's public safety facilities, fire safety equipment, and public liability insurance strictly comply with government laws and regulations.</span>
                 </div>
                 <div class="term-item">
                     <strong>4. 肖像權合理授權 / Portrait Rights Authorization：</strong><br>
                     家長同意本班在節慶活動、課堂成果中進行拍照或錄影，合理授權作為內部成果展示與官方推廣使用，且不損及學生名譽。<br>
-                    <span style="color: var(--text-sub); display: block; margin-top: 4px;">Parents agree to allow the school to take photos or videos during holiday activities and class presentations. This constitutes a rational authorization for internal displays and official promotional use, ensuring that student reputation is fully protected.</span>
+                    <span style="color: var(--text-sub); font-size: 11.5px; display: block; margin-top: 4px; font-weight: 400; line-height: 1.5;">Parents agree to allow the school to take photos or videos during holiday activities and class presentations. This constitutes a rational authorization for internal displays and official promotional use, ensuring that student reputation is fully protected.</span>
                 </div>
             </div>
 
             <div class="agreement-text">
                 本人已詳細閱讀、理解並完全同意上述所有巴比美語短期補習服務條款。<br>
-                <span style="font-size: 11.5px; font-weight: 400; color: var(--text-sub); display: block; margin-top: 4px; font-style: italic;">I have read, understood, and fully agreed to all the terms and conditions of Bobby English School services stated above.</span>
+                <span style="font-size: 11.5px; font-weight: 500; color: var(--text-sub); display: block; margin-top: 4px; font-style: italic;">I have read, understood, and fully agreed to all the terms and conditions of Bobby English School services stated above.</span>
             </div>
 
-            <!-- 🎯 需求 1 精準變更：替換為雙電子簽名畫布區 -->
+            <!-- 雙親筆電子簽名區塊 -->
             <div class="dual-signature-row">
                 <div class="signature-block">
                     <span class="signature-label">✍️ 甲方家長/監護人親筆電子簽名區：</span>
@@ -515,7 +524,7 @@
                 </div>
             </div>
 
-            <div class="submit-btn-container">
+            <div class="submit-btn-container" id="submitBtnContainer">
                 <button type="submit" id="submitBtn" class="submit-btn">確認並送出報名表 / Submit Form</button>
             </div>
         </div>
@@ -523,6 +532,7 @@
 </div>
 
 <script>
+var TARGET_COURSE = "Advance A2";
 var parentCanvas = document.getElementById('parentSigPad');
 var staffCanvas = document.getElementById('staffSigPad');
 var parentCtx = parentCanvas.getContext('2d');
@@ -586,148 +596,42 @@ function isCanvasBlank(canvas) {
     return true;
 }
 
-var courseDatabase = {
-    "Advance A1": { 
-        id: "Advance A1",
-        zhName: "兒童進階美語", 
-        time: "<div style='display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 4px 0;'><div style='font-weight:800; color:var(--uci-blue); font-size:13px; line-height:1.2;'><span class='no-orphan'>每週三、五</span></div><div style='font-weight:700; color:var(--uci-blue); font-size:11.5px; line-height:1.2; margin-top:3px;'><span class='no-orphan'>4:30 PM - 6:30 PM</span></div></div>", 
-        lessons: 34, price: 770, materials: 3520, misc: 60 
-    },
-    "Advance A2": { 
-        id: "Advance A2",
-        zhName: "兒童進階美語", 
-        time: "<div style='display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 4px 0;'><div style='font-weight:800; color:var(--uci-blue); font-size:13px; line-height:1.2;'><span class='no-orphan'>每週二、四</span></div><div style='font-weight:700; color:var(--uci-blue); font-size:11.5px; line-height:1.2; margin-top:3px;'><span class='no-orphan'>4:30 PM - 6:30 PM</span></div></div>", 
-        lessons: 38, price: 770, materials: 3520, misc: 60 
-    }
-};
-
-var advancedDeadValues = {
-    "Advance B1": { id: "Advance B1", zhName: "青少年進階美語", "1.0": 36680, "0.9": 33012, "0.85": 31178, "0.8": 29344, time: "<div style='display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 4px 0;'><div style='font-weight:800; color:var(--uci-blue); font-size:13px; line-height:1.2;'><span class='no-orphan'>每週二、四</span></div><div style='font-weight:700; color:var(--uci-blue); font-size:11.5px; line-height:1.2; margin-top:3px;'><span class='no-orphan'>7:00 PM - 9:00 PM</span></div></div>", t: 31160, m: 3240, ms: 2280 },
-    "Advance B2": { id: "Advance B2", zhName: "青少年進階美語", "1.0": 36680, "0.9": 33012, "0.85": 31178, "0.8": 29344, time: "<div style='display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 4px 0;'><div style='font-weight:800; color:var(--uci-blue); font-size:13px; line-height:1.2;'><span class='no-orphan'>每週二、四</span></div><div style='font-weight:700; color:var(--uci-blue); font-size:11.5px; line-height:1.2; margin-top:3px;'><span class='no-orphan'>7:00 PM - 9:00 PM</span></div></div>", t: 31160, m: 3240, ms: 2280 },
-    "Advance C1": { id: "Advance C1", zhName: "青少年進階美語", "1.0": 17140, "0.9": 15426, "0.85": 14569, "0.8": 13712, time: "<div style='display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 4px 0;'><div style='font-weight:800; color:var(--uci-blue); font-size:13px; line-height:1.2;'><span class='no-orphan'>每週一晚上</span></div><div style='font-size:11px; opacity:0.9; margin-top:1px;'><span class='no-orphan'>7:00 PM - 9:00 PM</span></div></div>", t: 14450, m: 1840, ms: 850 }
-};
-
-var TARGET_COURSE = "Advance A2"; 
-
 window.onload = function() {
     initCanvases();
-    document.getElementById('course_name_hidden').value = TARGET_COURSE;
-    document.getElementById('formSubject').value = "【巴比單一課程報名】" + TARGET_COURSE + " 報名通知";
-    
-    document.getElementById('mainTitleDisplay').innerHTML = "私立巴比美語短期補習班 ｜ " + TARGET_COURSE + " 專屬智慧報名系統";
-    document.getElementById('subTitleDisplay').innerHTML = "Bobby English School - " + TARGET_COURSE + " Enrollment Form";
-    document.getElementById('dynamicBannerDisplay').innerHTML = TARGET_COURSE + " 專屬智慧報名系統";
-    
-    var today = new Date().toISOString().split('T')[0];
-    if (document.getElementById('parentSigDate')) document.getElementById('parentSigDate').value = today;
-    if (document.getElementById('teacherSigDate')) document.getElementById('teacherSigDate').value = today;
-
+    var urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('view_mode')) {
+        populateFormFromParams(urlParams);
+        return;
+    }
     calculateTuition();
 };
 
+// 🎯 Advance A2 專屬即時計費連動 (38 堂課)
 function calculateTuition() {
     try {
-        var courseKey = TARGET_COURSE;
-        var labelDisplay = document.getElementById('courseLabelDisplay');
-        var timeDisplay = document.getElementById('timeDisplay');
-        var calcPreview = document.getElementById('calcPreview');
-        var totalInput = document.getElementById('total_amount');
-        var summerBox = document.getElementById('summerConfigBox');
-        var discountRow = document.getElementById('standardDiscountRow');
+        var discountRate = parseFloat(document.querySelector('input[name="discount_plan"]:checked').value);
+        var identity = document.querySelector('input[name="student_identity"]:checked').value;
+        
+        var pricePerLesson = 770;
+        var lessons = 38;
+        var rawTuition = pricePerLesson * lessons; // $29,260
+        var rawMaterials = (identity === 'new') ? 3520 : 0; // 新生 $3,520，舊生 $0
+        var rawMisc = 60 * lessons; // $2,280
+        
+        var calcTuition = Math.round(rawTuition * discountRate);
+        var calcMaterials = Math.round(rawMaterials * discountRate);
+        var calcMisc = Math.round(rawMisc * discountRate);
+        var grandTotal = Math.round((rawTuition + rawMaterials + rawMisc) * discountRate);
 
-        var discountRate = 1.0;
-        var activeRadio = document.querySelector('input[name="discount_plan"]:checked');
-        if (activeRadio) discountRate = parseFloat(activeRadio.value);
+        document.getElementById('total_amount').value = "$" + grandTotal.toLocaleString();
+        document.getElementById('sub_tuition').value = calcTuition;
+        document.getElementById('sub_materials').value = calcMaterials;
+        document.getElementById('sub_misc').value = calcMisc;
 
-        if (courseKey === "2026 暑期班") {
-            labelDisplay.innerHTML = "<div class='course-id'>☀️ 2026 Summer Classes</div><div class='course-zh'>暑期密集英語營 (18堂/7-8月)</div>";
-            summerBox.style.display = "block";
-            discountRow.style.opacity = "0.4";
-            
-            var weeks = parseInt(document.getElementById('summerWeeks').value);
-            var hasPM = document.getElementById('summerPM').checked;
-            
-            var baseRate = (weeks >= 3) ? 3600 : 4500;
-            var pmRate = (weeks >= 3) ? 1800 : 1912;
-            
-            var tuitionTotal = baseRate * weeks;
-            var pmTotal = hasPM ? (pmRate * weeks) : 0;
-            var finalTotal = tuitionTotal + pmTotal;
-
-            document.getElementById('class_time').value = "每週二、三、四 早上 9:00-12:00a.m.";
-            document.getElementById('sub_tuition').value = tuitionTotal;
-            document.getElementById('sub_materials').value = pmTotal;
-            document.getElementById('sub_misc').value = 0;
-            document.getElementById('summer_weeks_selected').value = weeks + "週";
-            document.getElementById('summer_pm_selected').value = hasPM ? "加購下午班" : "無加購";
-            
-            totalInput.value = "$" + finalTotal;
-
-            timeDisplay.innerHTML = "<div style='display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 4px 0;'><div style='font-weight:800; color:var(--uci-blue); font-size:13px; line-height:1.2;'><span class='no-orphan'>每週二、三、四</span></div><div style='font-weight:700; color:var(--uci-blue); font-size:11.5px; line-height:1.2; margin-top:3px;'><span class='no-orphan'>9:00 AM - 12:00 PM</span></div></div>";
-            var bonusText = hasPM ? " (含下午英文複習班：每週$" + pmRate + " × " + weeks + "週)" : "";
-            var offerText = (weeks >= 3) ? "<span style='color:red;'>(已自動套用滿3週以上8折大特惠每週$3600!)</span>" : "(常態1-2週原價每週$4500)";
-            
-            calcPreview.innerHTML = "☀️ <b>2026 暑期密集英語營費用拆解 " + offerText + "</b>：<br>" +
-                                    "早上密集班費用：$" + baseRate + " × " + weeks + "週 = $" + tuitionTotal + bonusText + "<br>" +
-                                    "👉 <b>應繳實際總計金額：NT$ " + finalTotal + " 元</b>";
-            return;
-        }
-
-        summerBox.style.display = "none";
-        discountRow.style.opacity = "1";
-
-        if (advancedDeadValues[courseKey]) {
-            var adv = advancedDeadValues[courseKey];
-            labelDisplay.innerHTML = "<div class='course-id'>" + adv.id + "</div><div class='course-zh'>" + adv.zhName + "</div>";
-            
-            var finalTotal = adv[discountRate.toString()] || adv["1.0"];
-            
-            document.getElementById('class_time').value = adv.time.replace(/<[^>]+>/g, '');
-            document.getElementById('sub_tuition').value = Math.round(adv.t * discountRate);
-            document.getElementById('sub_materials').value = Math.round(adv.m * discountRate);
-            document.getElementById('sub_misc').value = Math.round(adv.ms * discountRate);
-            
-            totalInput.value = "$" + finalTotal;
-
-            timeDisplay.innerHTML = adv.time;
-            calcPreview.innerHTML = "📚 <b>" + courseKey + " 費用即時拆解明細</b>：<br>" +
-                                    "基本學費總計：$" + adv.t + " | 固定教材費：$" + adv.m + " | 當期學雜費：$" + adv.ms + "<br>" +
-                                    "👉 <b>方案運算應繳總金額：NT$ " + finalTotal + " 元</b>";
-            return;
-        }
-
-        if (courseDatabase[courseKey]) {
-            var course = courseDatabase[courseKey];
-            labelDisplay.innerHTML = "<div class='course-id'>" + course.id + "</div><div class='course-zh'>" + course.zhName + "</div>";
-            document.getElementById('class_time').value = "每週二四 4:30-6:30 PM";
-            
-            var tuitionTotal = course.price * course.lessons; // 770 * 38 = 29,260
-            var materialsTotal = course.materials;           // 3,520 ($2,770 + $750)
-            var miscTotal = course.misc * course.lessons;     // 60 * 38 = 2,280
-            
-            var subTotal = tuitionTotal + materialsTotal + miscTotal;
-            var finalTotal = Math.round(subTotal * discountRate);
-
-            document.getElementById('sub_tuition').value = Math.round(tuitionTotal * discountRate);
-            document.getElementById('sub_materials').value = Math.round(materialsTotal * discountRate);
-            document.getElementById('sub_misc').value = Math.round(miscTotal * discountRate);
-            
-            totalInput.value = "$" + finalTotal;
-            timeDisplay.innerHTML = course.time;
-            
-            var discountStr = (discountRate * 10).toString();
-            if (discountRate === 1.0) discountStr = "10";
-            
-            var discountLabel = discountRate === 0.8 ? " <span style='color:red;'>(享8折特惠)</span>" : " (常態運算)";
-
-            calcPreview.innerHTML = "📚 <b>" + courseKey + " 全項目折扣拆解明細" + discountLabel + "</b>：<br>" +
-                                    "基本學費：$" + course.price + " × " + course.lessons + "堂 = $" + tuitionTotal.toLocaleString() + " | " +
-                                    "原價教材費：$" + materialsTotal.toLocaleString() + " | " +
-                                    "學雜費：$" + course.misc + " × " + course.lessons + "堂 = $" + miscTotal.toLocaleString() + "<br>" +
-                                    "👉 <b>全項目（學費＋教材＋雜費）套用 " + discountStr + " 折後實際總計：NT$ " + finalTotal.toLocaleString() + " 元</b>";
-        }
+        var idText = (identity === 'new') ? "新生" : "舊生";
+        document.getElementById('calcPreview').innerHTML = "📚 <b>【" + idText + "】應繳總金額套用折扣後：NT$ " + grandTotal.toLocaleString() + " 元</b>";
     } catch (err) {
-        console.error("Tuition calculation error resolved:", err);
+        console.error("Tuition calculation error:", err);
     }
 }
 
@@ -749,6 +653,7 @@ function showImagePreview(input) {
     }
 }
 
+// 🎯 純淨單通道升級：POST 送出給 GAS 後端 (連線型別設為 enrollment)
 document.getElementById('enrollmentForm').addEventListener('submit', function(e) {
     e.preventDefault(); 
     var form = this;
@@ -761,6 +666,7 @@ document.getElementById('enrollmentForm').addEventListener('submit', function(e)
 
     if (submitBtn) {
         submitBtn.disabled = true;
+        submitBtn.style.backgroundColor = "#cbd5e1";
         submitBtn.innerText = "正在同步巴比核心雲端校務資料庫...";
     }
     
@@ -769,29 +675,36 @@ document.getElementById('enrollmentForm').addEventListener('submit', function(e)
         document.getElementById('signature_staff_base64').value = staffCanvas.toDataURL("image/png");
     }
 
-    var params = new URLSearchParams();
-    var baseUrl = window.location.origin + window.location.pathname;
-    var formElements = form.elements;
-    
-    for (var i = 0; i < formElements.length; i++) {
-        var el = formElements[i];
-        if (!el.name || el.type === 'file' || el.type === 'submit' || el.name.startsWith('_')) continue;
-        if (el.type === 'radio') {
-            if (el.checked) params.append(el.name, el.value);
-        } else {
-            if (el.value) params.append(el.name, el.value);
-        }
-    }
-    params.append('auto_print', 'true');
-    document.getElementById('printLinkInput').value = baseUrl + '?' + params.toString();
-    
+    var sNameZh = encodeURIComponent(document.getElementById('student_name_zh').value || '');
+    var sNameEn = encodeURIComponent(form.elements['student_name_en'].value || '');
+    var pName = encodeURIComponent(document.getElementById('parent_name').value || '');
+    var phone = encodeURIComponent(form.elements['phone'].value || '');
+    var email = encodeURIComponent(form.elements['email'].value || '');
+    var address = encodeURIComponent(document.getElementById('address').value || '');
+    var disc = document.querySelector('input[name="discount_plan"]:checked').value;
+    var identity = document.querySelector('input[name="student_identity"]:checked').value;
+
+    var baseUrl = window.location.href.split('?')[0];
+    var cleanPrintUrl = baseUrl + '?view_mode=true&auto_print=true' +
+                        '&student_name_zh=' + sNameZh + 
+                        '&student_name_en=' + sNameEn + 
+                        '&parent_name=' + pName + 
+                        '&phone=' + phone + 
+                        '&email=' + email + 
+                        '&address=' + address + 
+                        '&student_identity=' + identity +
+                        '&discount_plan=' + disc;
+
+    document.getElementById('printLinkInput').value = cleanPrintUrl;
+
     var googleAppsScriptUrl = "https://script.google.com/macros/s/AKfycbwr4AAm42X6bvPwEbp8tPhyc0N3js3zhicgkD5YGrnk5EnKmeGakB7FUIcCH98glKrwVA/exec";
     
     var now = new Date();
     var timeString = now.getFullYear() + "/" + (now.getMonth()+1) + "/" + now.getDate() + " " + now.getHours() + ":" + String(now.getMinutes()).padStart(2, '0');
 
+    // 🎯 核心修復：type 設為 enrollment 完美咬合 GAS 後端判斷條件
     var payload = {
-        type: "form",
+        type: "enrollment",
         course: "Advance A2",
         time: timeString,
         studentName: document.getElementById('student_name_zh').value,
@@ -802,7 +715,7 @@ document.getElementById('enrollmentForm').addEventListener('submit', function(e)
         email: form.elements['email'].value || "Joy@bobbyenglishschool.com",
         className: "Advance A2 兒童進階美語",
         feeDetails: document.getElementById('total_amount').value,
-        notes: "報名表登記成功 (" + document.querySelector('input[name="discount_plan"]:checked').parentElement.textContent.trim() + ")",
+        notes: "家長親筆電子簽名完備 (" + (identity === 'new' ? '新生' : '舊生') + ")",
         parentSignatureBase64: parentCanvas.toDataURL("image/png"),
         cardUrl: document.getElementById('printLinkInput').value
     };
@@ -816,7 +729,6 @@ document.getElementById('enrollmentForm').addEventListener('submit', function(e)
     .then(function() {
         alert("🎉 巴比美語：Advance A2 專屬雲端連線登記成功！已發送通知至 Joy 主任信箱！");
         if (submitBtn) {
-            submitBtn.disabled = false;
             submitBtn.innerText = "✓ 報名表已順暢送出";
         }
     })
@@ -824,11 +736,37 @@ document.getElementById('enrollmentForm').addEventListener('submit', function(e)
         console.error("GAS Submission error:", error);
         alert("🎉 巴比美語：Advance A2 專屬雲端連線登記成功！");
         if (submitBtn) {
-            submitBtn.disabled = false;
             submitBtn.innerText = "✓ 報名表已順暢送出";
         }
     });
 });
+
+function populateFormFromParams(params) {
+    document.getElementById('topPrintBar').style.display = 'block';
+    document.getElementById('submitBtnContainer').style.display = 'none';
+
+    params.forEach(function(value, key) {
+        var field = document.getElementsByName(key)[0] || document.getElementById(key);
+        if (field) {
+            if (field.type === 'radio') {
+                var radio = document.querySelector('input[name="' + key + '"][value="' + value + '"]');
+                if (radio) radio.checked = true;
+            } else {
+                field.value = decodeURIComponent(value);
+            }
+        }
+    });
+
+    calculateTuition();
+    if (params.get('auto_print') === 'true') {
+        setTimeout(function() { window.print(); }, 800);
+    }
+}
+
+window.onresize = function() {
+    setupCanvas(parentCanvas, parentCtx);
+    setupCanvas(staffCanvas, staffCtx);
+};
 </script>
 </body>
 </html>
