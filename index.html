@@ -69,24 +69,14 @@
         .submit-btn:disabled { background-color: #cbd5e1 !important; color: #666666 !important; cursor: not-allowed; transform: none !important; }
         .top-print-bar { display: none; background: var(--uci-blue); color: #fff; padding: 12px; text-align: center; position: sticky; top: 0; z-index: 1000; font-weight: 700; }
         .top-print-bar button { background: var(--uci-gold); color: var(--uci-blue); border: none; padding: 8px 20px; font-weight: 800; border-radius: 20px; cursor: pointer; font-size: 14px; margin-left: 10px; }
-        
-        /* 🎯 確保列印時 Canvas 簽名與大頭照完美輸出 */
-        @media print { 
-            body { background-color: transparent; padding: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; } 
-            .page-container { box-shadow: none; max-width: 100%; } 
-            .page1 { break-after: page; } 
-            .submit-btn-container, .top-print-bar, .canvas-clear-btn, .photo-file-input { display: none !important; } 
-            table, th, td { border: 1px solid #1b3d6d !important; } 
-            .signature-canvas-container { border: 1px solid var(--uci-blue) !important; } 
-            canvas { display: block !important; width: 100% !important; height: 100% !important; }
-        }
+        @media print { body { background-color: transparent; padding: 0; -webkit-print-color-adjust: exact; } .page-container { box-shadow: none; max-width: 100%; } .page1 { break-after: page; } .submit-btn-container, .top-print-bar, .canvas-clear-btn { display: none !important; } table, th, td { border: 1px solid #1b3d6d !important; } }
         @media (max-width: 768px) { body { padding: 8px; } .page { padding: 18px 14px; } .dual-signature-row { flex-direction: column; gap: 15px; } .signature-block { width: 100%; } table { min-width: 600px; } }
     </style>
 </head>
 <body>
 
 <div id="topPrintBar" class="top-print-bar">
-    📄 正在預覽填妥之報名表 ── <button onclick="window.print()">🖨️ 點此列印 / 存成 PDF 紙本</button>
+    📄 正在預覽填妥之報名表 ── <button onclick="window.print()">🖨️ 點此列印 / 存成 PDF</button>
 </div>
 
 <div class="page-container">
@@ -451,13 +441,12 @@ document.getElementById('enrollmentForm').addEventListener('submit', function(e)
         submitBtn.innerText = "正在同步巴比核心雲端校務資料庫...";
     }
     
-    var parentSigBase64 = parentCanvas.toDataURL("image/png");
-    document.getElementById('signature_parent_base64').value = parentSigBase64;
+    document.getElementById('signature_parent_base64').value = parentCanvas.toDataURL("image/png");
     if (!isCanvasBlank(staffCanvas)) {
         document.getElementById('signature_staff_base64').value = staffCanvas.toDataURL("image/png");
     }
 
-    // 🎯 打包全欄位與影像 Base64 數據至預覽 URL
+    // 🎯 100% 全欄位解構與打包成 URL 參數
     var sNameZh = encodeURIComponent(document.getElementById('student_name_zh').value || '');
     var sNameEn = encodeURIComponent(form.elements['student_name_en'].value || '');
     var gender = encodeURIComponent(document.querySelector('input[name="gender"]:checked') ? document.querySelector('input[name="gender"]:checked').value : '');
@@ -479,9 +468,6 @@ document.getElementById('enrollmentForm').addEventListener('submit', function(e)
     var receiptNo = encodeURIComponent(form.elements['receipt_no'] ? form.elements['receipt_no'].value : '');
     var matStatus = encodeURIComponent(document.querySelector('input[name="materials_status"]:checked') ? document.querySelector('input[name="materials_status"]:checked').value : '待發放');
 
-    var photoBase64 = encodeURIComponent(document.getElementById('student_photo_base64').value || '');
-    var sigBase64 = encodeURIComponent(parentSigBase64 || '');
-
     var baseUrl = window.location.href.split('?')[0];
     var cleanPrintUrl = baseUrl + '?view_mode=true&auto_print=true' +
                         '&student_name_zh=' + sNameZh + 
@@ -502,9 +488,7 @@ document.getElementById('enrollmentForm').addEventListener('submit', function(e)
                         '&transfer_code=' + transferCode +
                         '&staff_name=' + staffName +
                         '&receipt_no=' + receiptNo +
-                        '&materials_status=' + matStatus +
-                        '&photo_base64=' + photoBase64 +
-                        '&sig_base64=' + sigBase64;
+                        '&materials_status=' + matStatus;
 
     document.getElementById('printLinkInput').value = cleanPrintUrl;
 
@@ -536,7 +520,7 @@ document.getElementById('enrollmentForm').addEventListener('submit', function(e)
         staffName: form.elements['staff_name'] ? form.elements['staff_name'].value : 'Joy',
         receiptNo: form.elements['receipt_no'] ? form.elements['receipt_no'].value : '',
         notes: "家長親筆電子簽名完備 (" + (identity === 'new' ? '新生' : '舊生') + ")",
-        parentSignatureBase64: parentSigBase64,
+        parentSignatureBase64: parentCanvas.toDataURL("image/png"),
         studentPhotoBase64: document.getElementById('student_photo_base64').value,
         cardUrl: document.getElementById('printLinkInput').value
     };
@@ -558,39 +542,23 @@ document.getElementById('enrollmentForm').addEventListener('submit', function(e)
     });
 });
 
-// 🎯 全欄位 + 照片 + 電子簽名檔還原畫布
+// 🎯 全欄位預覽加載還原
 function populateFormFromParams(params) {
     document.getElementById('topPrintBar').style.display = 'block';
     document.getElementById('submitBtnContainer').style.display = 'none';
 
     params.forEach(function(value, key) {
-        if (key === 'photo_base64' && value) {
-            var container = document.getElementById('photoContainer');
-            var uploadText = document.getElementById('uploadText');
-            if (uploadText) uploadText.style.display = 'none';
-            var img = document.createElement('img');
-            img.src = decodeURIComponent(value);
-            img.className = 'preview-img';
-            container.appendChild(img);
-        } else if (key === 'sig_base64' && value) {
-            var imgSig = new Image();
-            imgSig.onload = function() {
-                parentCtx.drawImage(imgSig, 0, 0, parentCanvas.width / (window.devicePixelRatio || 1), parentCanvas.height / (window.devicePixelRatio || 1));
-            };
-            imgSig.src = decodeURIComponent(value);
-        } else {
-            var field = document.getElementsByName(key)[0] || document.getElementById(key);
-            if (field) {
-                if (field.type === 'radio') {
-                    var radio = document.querySelector('input[name="' + key + '"][value="' + value + '"]');
-                    if (radio) radio.checked = true;
-                } else { field.value = decodeURIComponent(value); }
-            }
+        var field = document.getElementsByName(key)[0] || document.getElementById(key);
+        if (field) {
+            if (field.type === 'radio') {
+                var radio = document.querySelector('input[name="' + key + '"][value="' + value + '"]');
+                if (radio) radio.checked = true;
+            } else { field.value = decodeURIComponent(value); }
         }
     });
 
     calculateTuition();
-    if (params.get('auto_print') === 'true') setTimeout(function() { window.print(); }, 1000);
+    if (params.get('auto_print') === 'true') setTimeout(function() { window.print(); }, 800);
 }
 
 var resizeTimer;
