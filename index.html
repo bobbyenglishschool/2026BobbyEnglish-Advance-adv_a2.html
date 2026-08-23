@@ -21,56 +21,57 @@
         }
         
         * { box-sizing: border-box; font-family: 'Inter', 'Noto Sans TC', sans-serif; -webkit-font-smoothing: antialiased; }
-        body { background-color: #f1f5f9; margin: 0; padding: 20px 0; color: var(--text-main); line-height: 1.55; }
+        body { background-color: #f1f5f9; margin: 0; padding: 20px 0; color: var(--text-main); line-height: 1.6; }
         .page-container { max-width: 800px; margin: 0 auto; background: #fff; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); border-radius: 12px; overflow: hidden; width: 100%; }
         .page { padding: 30px 40px; }
-        .dynamic-top-banner { font-size: 15px; font-weight: 800; color: var(--uci-blue); background-color: #e6f0fa; padding: 6px 14px; border-radius: 6px; margin-bottom: 15px; border-left: 4px solid var(--uci-gold); display: inline-block; }
+        .dynamic-top-banner { font-size: 15px; font-weight: 800; color: var(--uci-blue); background-color: #e6f0fa; padding: 6px 14px; border-radius: 6px; margin-bottom: 15px; border-left: 4px solid var(--uci-gold); display: inline-block; word-break: keep-all; }
         .header-section { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; border-bottom: 3px solid var(--uci-blue); padding-bottom: 15px; }
         .title-area { flex: 1; padding-right: 20px; min-width: 0; }
-        .main-title { color: var(--uci-blue); font-size: 21px; margin: 0 0 5px 0; font-weight: 900; }
-        .sub-title { color: var(--uci-blue); font-size: 13.5px; margin: 0 0 15px 0; font-weight: 600; opacity: 0.9; }
+        .main-title { color: var(--uci-blue); font-size: 21px; margin: 0 0 5px 0; font-weight: 900; letter-spacing: 0.3px; word-break: keep-all; }
+        .sub-title { color: var(--uci-blue); font-size: 13.5px; margin: 0 0 15px 0; font-weight: 600; opacity: 0.9; font-family: 'Inter', sans-serif; word-break: keep-all; }
         .contact-info { font-size: 12px; color: var(--text-sub); line-height: 1.65; }
-        .contact-info p { margin: 2px 0; font-weight: 500; }
+        .contact-info p { margin: 2px 0; font-weight: 500; word-break: keep-all; }
         .contact-info strong { font-weight: 800; color: var(--uci-blue); }
         .photo-box { width: 2in; height: 2in; border: 2px solid var(--uci-blue) !important; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 12px; font-weight: 700; color: var(--uci-blue); flex-shrink: 0; background-color: #fafafa; cursor: pointer; position: relative; overflow: hidden; border-radius: 6px; }
         .photo-file-input { position: absolute; width: 100%; height: 100%; top: 0; left: 0; opacity: 0; cursor: pointer; }
         .preview-img { width: 100%; height: 100%; object-fit: cover; }
-        .section-title { background-color: var(--uci-blue); color: #fff; padding: 8px 14px; font-size: 15px; font-weight: 800; margin: 20px 0 10px 0; display: inline-block; border-radius: 6px 6px 0 0; }
-        .table-responsive-wrapper { width: 100%; overflow-x: auto; margin-bottom: 15px; }
+        .section-title { background-color: var(--uci-blue); color: #fff; padding: 8px 14px; font-size: 15px; font-weight: 800; margin: 20px 0 10px 0; display: inline-block; border-radius: 6px 6px 0 0; letter-spacing: 0.4px; word-break: keep-all; }
+        .table-responsive-wrapper { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 15px; }
         table { width: 100%; border-collapse: collapse !important; font-size: 13px; table-layout: fixed; border: 1px solid #1b3d6d !important; background-color: #ffffff; }
         th, td { border: 1px solid #1b3d6d !important; padding: 8px 10px; vertical-align: middle; word-break: break-word; }
         th { background-color: #f0f4f8; color: var(--uci-blue); text-align: center; width: 18%; font-weight: 800; }
-        th span.zh-title { font-size: 13.5px; display: block; margin-bottom: 2px; font-weight: 800; }
-        th span.en-title { font-size: 10.5px; display: block; font-weight: 500; opacity: 0.82; }
+        th span.zh-title { font-size: 13.5px; display: block; margin-bottom: 2px; font-weight: 800; letter-spacing: 0.3px; word-break: keep-all; }
+        th span.en-title { font-size: 10.5px; display: block; font-weight: 500; opacity: 0.85; font-family: 'Inter', sans-serif; word-break: keep-all; }
         td { height: 45px; text-align: left; }
         .text-input, .static-course-display { border: none; background: transparent; width: 100%; height: 100%; outline: none; font-size: 13.5px; font-weight: 600; color: inherit; padding: 4px 8px; }
         .static-course-display { color: var(--uci-blue); display: flex; flex-direction: column; align-items: center !important; justify-content: center !important; text-align: center !important; height: 100%; }
-        .static-course-display .course-id { font-size: 14.5px; font-weight: 800; }
-        .static-course-display .course-zh { font-size: 12.5px; font-weight: 700; margin-top: 3px; }
+        .static-course-display .course-id { font-size: 14.5px; font-weight: 800; word-break: keep-all; }
+        .static-course-display .course-zh { font-size: 12.5px; font-weight: 700; margin-top: 3px; word-break: keep-all; }
         input[type="date"].text-input { display: block; line-height: normal; padding-right: 12px !important; font-size: 12px !important; text-align: right !important; width: 100%; height: 100%; font-weight: 700; }
         .radio-group { display: flex; align-items: center; gap: 14px; padding-left: 4px; height: 100%; flex-wrap: wrap; }
         .radio-group label { display: flex; align-items: center; gap: 5px; cursor: pointer; white-space: nowrap; font-size: 13px; font-weight: 700; color: var(--text-main); }
         .payment-inline-row { display: flex; align-items: center; gap: 10px; padding-left: 4px; height: 100%; font-size: 13px; font-weight: 700; }
-        .offer-box { background-color: rgba(254, 204, 7, 0.18); border: 1.5px dashed var(--uci-gold); padding: 12px 16px; margin: 15px 0; border-radius: 6px; font-weight: 800; color: #856400; text-align: center; font-size: 14.5px; }
-        .terms-header { text-align: center; color: var(--uci-blue); border-bottom: 2.5px solid var(--uci-blue); padding-bottom: 12px; margin-bottom: 22px; font-size: 19.5px; font-weight: 900; }
+        .offer-box { background-color: rgba(254, 204, 7, 0.18); border: 1.5px dashed var(--uci-gold); padding: 12px 16px; margin: 15px 0; border-radius: 6px; font-weight: 800; color: #856400; text-align: center; font-size: 14.5px; word-break: keep-all; }
+        .terms-header { text-align: center; color: var(--uci-blue); border-bottom: 2.5px solid var(--uci-blue); padding-bottom: 12px; margin-bottom: 22px; font-size: 19.5px; font-weight: 900; letter-spacing: 0.5px; }
         .privacy-statement { background-color: #f0f4f8; padding: 14px 18px; border-left: 4.5px solid var(--uci-blue); font-size: 13.5px; margin-bottom: 22px; border-radius: 6px; border: 1px solid #1b3d6d !important; text-align: justify; line-height: 1.65; font-weight: 500; }
+        .terms-list { font-size: 13.5px; color: var(--text-main); text-align: justify; }
         .terms-list .term-item { margin-bottom: 18px; line-height: 1.68; background: #ffffff; padding: 14px 18px; border-radius: 6px; border: 1px solid #1b3d6d !important; font-weight: 500; }
         .terms-list strong { color: var(--uci-blue); font-size: 14px; font-weight: 800; }
-        .agreement-text { text-align: center; font-size: 14.5px; font-weight: 800; color: var(--soft-red); margin: 25px 0 20px 0; line-height: 1.6; }
+        .terms-list span { font-family: 'Inter', sans-serif; font-size: 11.5px; color: var(--text-sub); display: block; margin-top: 4px; font-weight: 400; line-height: 1.5; }
+        .agreement-text { text-align: center; font-size: 14.5px; font-weight: 800; color: var(--soft-red); margin: 25px 0 20px 0; line-height: 1.6; word-break: keep-all; }
         .dual-signature-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; width: 100%; margin-top: 15px; margin-bottom: 20px; }
         .signature-block { width: 48%; display: flex; flex-direction: column; }
-        .signature-label { font-size: 13.5px; color: var(--uci-blue); font-weight: 800; margin-bottom: 8px; }
+        .signature-label { font-size: 13.5px; color: var(--uci-blue); font-weight: 800; margin-bottom: 8px; word-break: keep-all; }
         .signature-canvas-container { width: 100%; height: 140px; background-color: #fff; border: 1.5px dashed var(--uci-blue) !important; position: relative; border-radius: 6px; overflow: hidden; }
         canvas { width: 100%; height: 100%; cursor: crosshair; display: block; touch-action: none; }
-        .canvas-clear-btn { position: absolute; bottom: 6px; right: 6px; background-color: var(--soft-red); color: #fff; border: none; padding: 5px 10px; font-size: 11px; border-radius: 4px; cursor: pointer; font-weight: 800; z-index: 10; }
+        .canvas-clear-btn { position: absolute; bottom: 6px; right: 6px; background-color: var(--soft-red); color: #fff; border: none; padding: 5px 10px; font-size: 11px; border-radius: 4px; cursor: pointer; font-weight: 800; z-index: 10; word-break: keep-all; }
         .submit-btn-container { margin-top: 30px; text-align: center; }
-        .submit-btn { background-color: var(--uci-gold); color: var(--uci-blue); border: none; padding: 15px 40px; font-size: 17.5px; font-weight: 900; border-radius: 30px; cursor: pointer; width: 100%; max-width: 420px; box-shadow: 0 4px 8px rgba(0,0,0,0.12); }
+        .submit-btn { background-color: var(--uci-gold); color: var(--uci-blue); border: none; padding: 15px 40px; font-size: 17.5px; font-weight: 900; border-radius: 30px; cursor: pointer; width: 100%; max-width: 420px; box-shadow: 0 4px 8px rgba(0,0,0,0.12); word-break: keep-all; }
         .submit-btn:hover { transform: translateY(-2px); }
         .submit-btn:disabled { background-color: #cbd5e1 !important; color: #666666 !important; cursor: not-allowed; transform: none !important; }
-        .top-print-bar { display: none; background: var(--uci-blue); color: #fff; padding: 12px; text-align: center; position: sticky; top: 0; z-index: 1000; font-weight: 700; }
-        .top-print-bar button { background: var(--uci-gold); color: var(--uci-blue); border: none; padding: 8px 20px; font-weight: 800; border-radius: 20px; cursor: pointer; font-size: 14px; margin-left: 10px; }
+        .top-print-bar { display: none; background: var(--uci-blue); color: #fff; padding: 12px; text-align: center; position: sticky; top: 0; z-index: 1000; font-weight: 700; word-break: keep-all; }
+        .top-print-bar button { background: var(--uci-gold); color: var(--uci-blue); border: none; padding: 8px 20px; font-weight: 800; border-radius: 20px; cursor: pointer; font-size: 14px; margin-left: 10px; word-break: keep-all; }
         
-        /* 🎯 確保列印時 Canvas 簽名與大頭照完美輸出 */
         @media print { 
             body { background-color: transparent; padding: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; } 
             .page-container { box-shadow: none; max-width: 100%; } 
@@ -80,7 +81,13 @@
             .signature-canvas-container { border: 1px solid var(--uci-blue) !important; } 
             canvas { display: block !important; width: 100% !important; height: 100% !important; }
         }
-        @media (max-width: 768px) { body { padding: 8px; } .page { padding: 18px 14px; } .dual-signature-row { flex-direction: column; gap: 15px; } .signature-block { width: 100%; } table { min-width: 600px; } }
+        @media (max-width: 768px) { 
+            body { padding: 8px; } 
+            .page { padding: 18px 14px; } 
+            .dual-signature-row { flex-direction: column; gap: 15px; } 
+            .signature-block { width: 100%; } 
+            table { min-width: 600px; } 
+        }
     </style>
 </head>
 <body>
@@ -263,35 +270,40 @@
 
         <!-- PAGE 2 -->
         <div class="page page2">
-            <h2 class="terms-header">報名條款與家長同意書<br><span style="font-size: 13.5px; font-weight: 600; color: var(--text-sub); display: block; margin-top: 4px;">Terms & Conditions (Bobby English School Policies)</span></h2>
+            <h2 class="terms-header">報名條款與家長同意書<br><span style="font-size: 13.5px; font-weight: 600; color: var(--text-sub); display: block; margin-top: 4px; font-family: 'Inter', sans-serif;">Terms & Conditions (Bobby English School Policies)</span></h2>
             
             <div class="privacy-statement">
                 <strong>個資保護聲明 / Privacy Statement：</strong><br>
                 本班收集之個人資料僅供課程聯繫與行政管理使用，絕不外洩。符合中華民國個人資料保護法規範。<br>
-                <span style="color: var(--text-sub); font-size: 11.5px; display: block; margin-top: 3px;">All personal data collected by Bobby English School is strictly used for course communication and administrative purposes in accordance with the Personal Data Protection Act of the R.O.C. and will never be disclosed to third parties.</span>
+                <span>All personal data collected by Bobby English School is strictly used for course communication and administrative purposes in accordance with the Personal Data Protection Act of the R.O.C. and will never be disclosed to third parties.</span>
             </div>
 
             <div class="terms-list">
                 <div class="term-item">
                     <strong>1. 審閱權與退費規定 / Refund Policy：</strong><br>
-                    依據「桃園市短期補習班退費管理自治條例」規定辦理。家長攜回審閱期至少五日。開課前30日前退費者，退還全額；開課前1日至29日退費者，退還90%；開課後5日內要求退費者，退還80%；上課未逾全期1/3期間內要求退費者，退還50%；超過全期1/3學期者不予退費。教材發放後亦不予退還。
+                    依據「桃園市短期補習班退費管理自治條例」規定辦理。家長攜回審閱期至少五日。開課前30日前退費者，退還全額；開課前1日至29日退費者，退還90%；開課後5日內要求退費者，退還80%；上課未逾全期1/3期間內要求退費者，退還50%；超過全期1/3學期者不予退費。教材發放後亦不予退還。<br>
+                    <span>Refunds are processed in accordance with the "Taoyuan Short-term Cram School Refund Management Regulations." Parents have at least a 5-day contract review period. A 100% refund is issued if requested 30 days prior to the course start date; a 90% refund if requested 1 to 29 days prior; an 80% refund within the first 5 days of class; a 50% refund if requested after the 6th day but before completing 1/3 of the total course duration. No refunds will be issued after 1/3 of the course duration has passed. No refunds on textbook or material fees once distributed.</span>
                 </div>
                 <div class="term-item">
                     <strong>2. 請假與補課 / Leave & Make-up Lessons：</strong><br>
-                    因事或病假缺席者，請於上課前兩小時透過官方 LINE 或電話完成請假。完成請假者，本班將提供一對一或小組補課、輔導。無故缺課者（曠課）不予補課與退費。
+                    因事或病假缺席者，請於上課前兩小時透過官方 LINE 或電話完成請假。完成請假者，本班將提供一對一或小組補課、輔導。無故缺課者（曠課）不予補課與退費。<br>
+                    <span>In case of sick leave or personal leave, please notify the school via our official LINE account or phone at least 2 hours before class. For validated absences, the school will arrange one-on-one or small-group make-up tutoring. No make-up lessons or refunds will be provided for unexcused absences (truancy).</span>
                 </div>
                 <div class="term-item">
                     <strong>3. 安全與公共責任 / Safety & Public Liability Insurance：</strong><br>
-                    為維護學生安全，下課後請家長按時前來接送。本補習班公共安全設施、消防設備以及公共意外責任險均嚴格符合政府法令規範。
+                    為維護學生安全，下課後請家長按時前來接送。本補習班公共安全設施、消防設備以及公共意外責任險均嚴格符合政府法令規範。<br>
+                    <span>To ensure student safety, parents are requested to pick up their children on time after class. Our school's public safety facilities, fire safety equipment, and public liability insurance strictly comply with government laws and regulations.</span>
                 </div>
                 <div class="term-item">
                     <strong>4. 肖像權合理授權 / Portrait Rights Authorization：</strong><br>
-                    家長同意本班在節慶活動、課堂成果中進行拍照或錄影，合理授權作為內部成果展示與官方推廣使用，且不損及學生名譽。
+                    家長同意本班在節慶活動、課堂成果中進行拍照或錄影，合理授權作為內部成果展示與官方推廣使用，且不損及學生名譽。<br>
+                    <span>Parents agree to allow the school to take photos or videos during holiday activities and class presentations. This constitutes a rational authorization for internal displays and official promotional use, ensuring that student reputation is fully protected.</span>
                 </div>
             </div>
 
             <div class="agreement-text">
-                本人已詳細閱讀、理解並完全同意上述所有巴比美語短期補習服務條款。
+                本人已詳細閱讀、理解並完全同意上述所有巴比美語短期補習服務條款。<br>
+                <span style="font-size: 11.5px; font-weight: 500; color: var(--text-sub); display: block; margin-top: 4px; font-style: italic; font-family: 'Inter', sans-serif;">I have read, understood, and fully agreed to all the terms and conditions of Bobby English School services stated above.</span>
             </div>
 
             <div class="dual-signature-row">
@@ -457,7 +469,6 @@ document.getElementById('enrollmentForm').addEventListener('submit', function(e)
         document.getElementById('signature_staff_base64').value = staffCanvas.toDataURL("image/png");
     }
 
-    // 🎯 打包全欄位與影像 Base64 數據至預覽 URL
     var sNameZh = encodeURIComponent(document.getElementById('student_name_zh').value || '');
     var sNameEn = encodeURIComponent(form.elements['student_name_en'].value || '');
     var gender = encodeURIComponent(document.querySelector('input[name="gender"]:checked') ? document.querySelector('input[name="gender"]:checked').value : '');
@@ -558,7 +569,6 @@ document.getElementById('enrollmentForm').addEventListener('submit', function(e)
     });
 });
 
-// 🎯 全欄位 + 照片 + 電子簽名檔還原畫布
 function populateFormFromParams(params) {
     document.getElementById('topPrintBar').style.display = 'block';
     document.getElementById('submitBtnContainer').style.display = 'none';
