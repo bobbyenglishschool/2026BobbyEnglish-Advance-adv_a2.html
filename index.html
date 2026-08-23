@@ -701,19 +701,33 @@ document.getElementById('enrollmentForm').addEventListener('submit', function(e)
     var now = new Date();
     var timeString = now.getFullYear() + "/" + (now.getMonth()+1) + "/" + now.getDate() + " " + now.getHours() + ":" + String(now.getMinutes()).padStart(2, '0');
 
-    // 🎯 核心連線：type 設為 enrollment 完美咬合 GAS 後端判斷條件
+   // 🎯 全欄位解構與打包
+    var transferCode = form.elements['transfer_code'] ? form.elements['transfer_code'].value : '';
+    var payMethodVal = document.querySelector('input[name="payment_method"]:checked') ? document.querySelector('input[name="payment_method"]:checked').value : '現金';
+    if (payMethodVal === '銀行轉帳' && transferCode) {
+        payMethodVal += " (末五碼:" + transferCode + ")";
+    }
+
     var payload = {
         type: "enrollment",
         course: "Advance A2",
         time: timeString,
         studentName: document.getElementById('student_name_zh').value,
         englishName: form.elements['student_name_en'].value,
-        schoolGrade: (form.elements['school'].value || '') + " 第" + (form.elements['grade'].value || '') + "年級",
+        gender: document.querySelector('input[name="gender"]:checked') ? document.querySelector('input[name="gender"]:checked').value : '',
+        dob: document.getElementById('dob').value,
+        schoolGrade: (document.getElementById('school').value || '') + " 第" + (document.getElementById('grade').value || '') + "年級",
         parentName: document.getElementById('parent_name').value,
+        relation: form.elements['relation'].value || '',
         phone: form.elements['phone'].value,
         email: form.elements['email'].value || "Joy@bobbyenglishschool.com",
-        className: "Advance A2 兒童進階美語",
+        lineId: form.elements['line_id'] ? form.elements['line_id'].value : '',
+        address: document.getElementById('address').value,
+        paymentMethod: payMethodVal,
         feeDetails: document.getElementById('total_amount').value,
+        materialsStatus: document.querySelector('input[name="materials_status"]:checked') ? document.querySelector('input[name="materials_status"]:checked').value : '待發放',
+        staffName: form.elements['staff_name'] ? form.elements['staff_name'].value : 'Joy',
+        receiptNo: form.elements['receipt_no'] ? form.elements['receipt_no'].value : '',
         notes: "家長親筆電子簽名完備 (" + (identity === 'new' ? '新生' : '舊生') + ")",
         parentSignatureBase64: parentCanvas.toDataURL("image/png"),
         cardUrl: document.getElementById('printLinkInput').value
