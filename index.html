@@ -621,15 +621,24 @@ function prepareSubmit(event) {
     }
     
     var pSigData = parentCanvas.toDataURL("image/png");
+    var sSigData = !isCanvasBlank(staffCanvas) ? staffCanvas.toDataURL("image/png") : "";
+
     document.getElementById('signature_parent_base64').value = "[已於線上完成親筆電子簽章]";
-    document.getElementById('signature_staff_base64').value = !isCanvasBlank(staffCanvas) ? "[行政人員已完成電子核章]" : "[待行政核章]";
+    document.getElementById('signature_staff_base64').value = sSigData !== "" ? "[行政人員已完成電子核章]" : "[待行政核章]";
 
     try {
         var disc = document.getElementById('discountSelector').value;
         var sName = encodeURIComponent(document.getElementById('contract_student_name').value || '');
         var pName = encodeURIComponent(document.getElementById('contract_parent_name').value || '');
+        var pSigEncoded = encodeURIComponent(pSigData || '');
+        var sSigEncoded = encodeURIComponent(sSigData || '');
+
         var baseUrl = window.location.href.split('?')[0];
-        var cleanPrintUrl = baseUrl + '?view_mode=true&auto_print=true&discountSelector=' + disc + '&contract_student_name=' + sName + '&contract_parent_name=' + pName;
+        var cleanPrintUrl = baseUrl + '?view_mode=true&auto_print=true&discountSelector=' + disc + 
+                            '&contract_student_name=' + sName + 
+                            '&contract_parent_name=' + pName +
+                            '&parent_sig=' + pSigEncoded +
+                            '&staff_sig=' + sSigEncoded;
         document.getElementById('print_link_url').value = cleanPrintUrl;
     } catch(err) { console.error("Print URL error:", err); }
 
@@ -710,9 +719,15 @@ function populateContractFromParams(params) {
     document.getElementById('submitBtnContainer').style.display = 'none';
 
     params.forEach(function(value, key) {
-        var field = document.getElementsByName(key)[0] || document.getElementById(key);
-        if (field) {
-            field.value = decodeURIComponent(value);
+        if (key === 'parent_sig' && value) {
+            var imgP = new Image();
+            imgSigLoad(imgP, parentCtx, parentCanvas, value);
+        } else if (key === 'staff_sig' && value) {
+            var imgS = new Image();
+            imgSigLoad(imgS, staffCtx, staffCanvas, value);
+        } else {
+            var field = document.getElementsByName(key)[0] || document.getElementById(key);
+            if (field) field.value = value;
         }
     });
 
@@ -720,8 +735,15 @@ function populateContractFromParams(params) {
     updateNameDisplay();
 
     if (params.get('auto_print') === 'true') {
-        setTimeout(function() { window.print(); }, 800);
+        setTimeout(function() { window.print(); }, 1000);
     }
+}
+
+function imgSigLoad(img, ctx, canvas, value) {
+    img.onload = function() {
+        ctx.drawImage(img, 0, 0, canvas.width / (window.devicePixelRatio || 1), canvas.height / (window.devicePixelRatio || 1));
+    };
+    img.src = value;
 }
 
 var resizeTimer;
