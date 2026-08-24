@@ -574,27 +574,27 @@ function populateFormFromParams(params) {
     document.getElementById('submitBtnContainer').style.display = 'none';
 
     params.forEach(function(value, key) {
-        if ((key === 'photo_base64' || key === 'student_photo_base64') && value) {
+        if (key === 'photo_base64' && value) {
             var container = document.getElementById('photoContainer');
             var uploadText = document.getElementById('uploadText');
             if (uploadText) uploadText.style.display = 'none';
             var img = document.createElement('img');
-            img.src = value;
+            img.src = decodeURIComponent(value);
             img.className = 'preview-img';
             container.appendChild(img);
-        } else if ((key === 'sig_base64' || key === 'signature_parent_base64') && value) {
+        } else if (key === 'sig_base64' && value) {
             var imgSig = new Image();
             imgSig.onload = function() {
                 parentCtx.drawImage(imgSig, 0, 0, parentCanvas.width / (window.devicePixelRatio || 1), parentCanvas.height / (window.devicePixelRatio || 1));
             };
-            imgSig.src = value;
+            imgSig.src = decodeURIComponent(value);
         } else {
             var field = document.getElementsByName(key)[0] || document.getElementById(key);
             if (field) {
                 if (field.type === 'radio') {
                     var radio = document.querySelector('input[name="' + key + '"][value="' + value + '"]');
                     if (radio) radio.checked = true;
-                } else { field.value = value; }
+                } else { field.value = decodeURIComponent(value); }
             }
         }
     });
