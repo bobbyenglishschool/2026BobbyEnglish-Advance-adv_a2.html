@@ -332,6 +332,8 @@
 
 <script>
 var TARGET_COURSE = "Advance A2";
+var PHOTO_FOLDER_ID = "1cjxtpd-c9Bl97NLz92pohKx-g-d6OBFJ"; // ⚡ 核心修復：精準指定學員大頭照備份庫 ID
+
 var parentCanvas = document.getElementById('parentSigPad');
 var staffCanvas = document.getElementById('staffSigPad');
 var parentCtx = parentCanvas.getContext('2d');
@@ -526,29 +528,31 @@ document.getElementById('enrollmentForm').addEventListener('submit', function(e)
     var rawPayString = payMethodVal;
     if (payMethodVal === '銀行轉帳' && transferCode) rawPayString += " (末五碼:" + transferCode + ")";
 
+    // ⚡ 核心修正：將前端變數與 GAS 後端接收名稱 100% 咬合
     var payload = {
         type: "enrollment",
         course: "Advance A2",
         time: timeString,
-        studentName: document.getElementById('student_name_zh').value,
-        englishName: form.elements['student_name_en'].value,
+        studentNameZh: document.getElementById('student_name_zh').value,
+        studentNameEn: form.elements['student_name_en'].value,
         gender: document.querySelector('input[name="gender"]:checked') ? document.querySelector('input[name="gender"]:checked').value : '',
         dob: document.getElementById('dob').value,
         schoolGrade: (document.getElementById('school').value || '') + " 第" + (document.getElementById('grade').value || '') + "年級",
         parentName: document.getElementById('parent_name').value,
         relation: form.elements['relation'].value || '',
         phone: form.elements['phone'].value,
-        email: form.elements['email'].value || "Joy@bobbyenglishschool.com",
+        email: form.elements['email'].value || "joy@bobbyenglishschool.com",
         lineId: form.elements['line_id'] ? form.elements['line_id'].value : '',
         address: document.getElementById('address').value,
         paymentMethod: rawPayString,
-        feeDetails: document.getElementById('total_amount').value,
+        totalAmount: document.getElementById('total_amount').value,
         materialsStatus: document.querySelector('input[name="materials_status"]:checked') ? document.querySelector('input[name="materials_status"]:checked').value : '待發放',
         staffName: form.elements['staff_name'] ? form.elements['staff_name'].value : 'Joy',
         receiptNo: form.elements['receipt_no'] ? form.elements['receipt_no'].value : '',
         notes: "家長親筆電子簽名完備 (" + (identity === 'new' ? '新生' : '舊生') + ")",
         parentSignatureBase64: parentSigBase64,
-        studentPhotoBase64: document.getElementById('student_photo_base64').value,
+        photoBase64: document.getElementById('student_photo_base64').value, // ⚡ 相片 Base64 欄位對齊
+        photoFolderId: PHOTO_FOLDER_ID, // ⚡ 明確傳遞正確相片資料夾 ID
         cardUrl: document.getElementById('printLinkInput').value
     };
 
