@@ -408,7 +408,7 @@ function calculateTuition() {
     try {
         var discountRate = parseFloat(document.querySelector('input[name="discount_plan"]:checked').value);
         var identity = document.querySelector('input[name="student_identity"]:checked').value;
-        var lessons = 38;
+        var lessons = 38; // Advance A2 專屬 38 堂課算式
         var rawTuition = 770 * lessons; // $29,260
         var rawMaterials = (identity === 'old_no_mat') ? 0 : 3520;
         var rawMisc = 60 * lessons; // $2,280
@@ -490,9 +490,7 @@ document.getElementById('enrollmentForm').addEventListener('submit', function(e)
     var receiptNo = encodeURIComponent(form.elements['receipt_no'] ? form.elements['receipt_no'].value : '');
     var matStatus = encodeURIComponent(document.querySelector('input[name="materials_status"]:checked') ? document.querySelector('input[name="materials_status"]:checked').value : '待發放');
 
-    var photoBase64 = encodeURIComponent(document.getElementById('student_photo_base64').value || '');
-    var sigBase64 = encodeURIComponent(parentSigBase64 || '');
-
+    // ⚡ 輕量文字預覽 URL
     var baseUrl = window.location.href.split('?')[0];
     var cleanPrintUrl = baseUrl + '?view_mode=true&auto_print=true' +
                         '&student_name_zh=' + sNameZh + 
@@ -513,9 +511,7 @@ document.getElementById('enrollmentForm').addEventListener('submit', function(e)
                         '&transfer_code=' + transferCode +
                         '&staff_name=' + staffName +
                         '&receipt_no=' + receiptNo +
-                        '&materials_status=' + matStatus +
-                        '&photo_base64=' + photoBase64 +
-                        '&sig_base64=' + sigBase64;
+                        '&materials_status=' + matStatus;
 
     document.getElementById('printLinkInput').value = cleanPrintUrl;
 
@@ -531,6 +527,7 @@ document.getElementById('enrollmentForm').addEventListener('submit', function(e)
         course: "Advance A2",
         time: timeString,
         studentName: document.getElementById('student_name_zh').value,
+        studentNameZh: document.getElementById('student_name_zh').value,
         englishName: form.elements['student_name_en'].value,
         gender: document.querySelector('input[name="gender"]:checked') ? document.querySelector('input[name="gender"]:checked').value : '',
         dob: document.getElementById('dob').value,
@@ -538,7 +535,7 @@ document.getElementById('enrollmentForm').addEventListener('submit', function(e)
         parentName: document.getElementById('parent_name').value,
         relation: form.elements['relation'].value || '',
         phone: form.elements['phone'].value,
-        email: form.elements['email'].value || "Joy@bobbyenglishschool.com",
+        email: form.elements['email'].value || "joy@bobbyenglishschool.com",
         lineId: form.elements['line_id'] ? form.elements['line_id'].value : '',
         address: document.getElementById('address').value,
         paymentMethod: rawPayString,
@@ -549,7 +546,7 @@ document.getElementById('enrollmentForm').addEventListener('submit', function(e)
         notes: "家長親筆電子簽名完備 (" + (identity === 'new' ? '新生' : '舊生') + ")",
         parentSignatureBase64: parentSigBase64,
         studentPhotoBase64: document.getElementById('student_photo_base64').value,
-        cardUrl: document.getElementById('printLinkInput').value
+        cardUrl: cleanPrintUrl
     };
 
     fetch(googleAppsScriptUrl, {
@@ -569,38 +566,46 @@ document.getElementById('enrollmentForm').addEventListener('submit', function(e)
     });
 });
 
+// ⚡ 核心還原函數：完美解析 Drive 照片與簽名網址並載入畫布
 function populateFormFromParams(params) {
     document.getElementById('topPrintBar').style.display = 'block';
     document.getElementById('submitBtnContainer').style.display = 'none';
 
     params.forEach(function(value, key) {
-        if (key === 'photo_base64' && value) {
+        var decodedValue = decodeURIComponent(value);
+        if ((key === 'photo_url' || key === 'photo_base64') && decodedValue && decodedValue !== '未上傳照片') {
             var container = document.getElementById('photoContainer');
             var uploadText = document.getElementById('uploadText');
             if (uploadText) uploadText.style.display = 'none';
+            var oldImg = container.querySelector('.preview-img');
+            if (oldImg) oldImg.remove();
             var img = document.createElement('img');
-            img.src = decodeURIComponent(value);
+            img.src = decodedValue;
             img.className = 'preview-img';
+            img.crossOrigin = "anonymous";
             container.appendChild(img);
-        } else if (key === 'sig_base64' && value) {
+        } else if ((key === 'sig_url' || key === 'sig_base64') && decodedValue && decodedValue !== '未提供簽名檔') {
             var imgSig = new Image();
+            imgSig.crossOrigin = "anonymous";
             imgSig.onload = function() {
                 parentCtx.drawImage(imgSig, 0, 0, parentCanvas.width / (window.devicePixelRatio || 1), parentCanvas.height / (window.devicePixelRatio || 1));
             };
-            imgSig.src = decodeURIComponent(value);
+            imgSig.src = decodedValue;
         } else {
             var field = document.getElementsByName(key)[0] || document.getElementById(key);
             if (field) {
                 if (field.type === 'radio') {
-                    var radio = document.querySelector('input[name="' + key + '"][value="' + value + '"]');
+                    var radio = document.querySelector('input[name="' + key + '"][value="' + decodedValue + '"]');
                     if (radio) radio.checked = true;
-                } else { field.value = decodeURIComponent(value); }
+                } else { field.value = decodedValue; }
             }
         }
     });
 
     calculateTuition();
-    if (params.get('auto_print') === 'true') setTimeout(function() { window.print(); }, 1000);
+    if (params.get('auto_print') === 'true') {
+        setTimeout(function() { window.print(); }, 1200);
+    }
 }
 
 var resizeTimer;
