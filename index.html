@@ -61,6 +61,17 @@
         .static-course-display .course-zh { font-size: 12.5px; font-weight: 700; margin-top: 3px; word-break: keep-all; }
         .radio-group { display: flex; align-items: center; justify-content: flex-start; gap: 12px; padding-left: 4px; height: 100%; flex-wrap: wrap; }
         .radio-group label { display: flex; align-items: center; gap: 4px; cursor: pointer; white-space: nowrap; }
+
+        /* 🚫 不開放選項之淡暗色與禁用樣式 */
+        .radio-group label.disabled-option {
+            color: #94a3b8 !important;
+            cursor: not-allowed !important;
+            opacity: 0.65;
+        }
+        .radio-group label.disabled-option input[type="radio"] {
+            cursor: not-allowed !important;
+        }
+
         .payment-inline-row { display: flex; align-items: center; justify-content: flex-start; gap: 8px; padding-left: 4px; padding-right: 12px; height: 100%; width: 100%; flex-wrap: wrap; }
         .payment-inline-row label { display: flex; align-items: center; gap: 4px; cursor: pointer; white-space: nowrap; }
         .offer-box { background-color: rgba(254, 204, 7, 0.18); border: 1.5px dashed var(--uci-gold); padding: 12px 16px; margin: 15px 0; border-radius: 6px; font-weight: 800; color: #856400; text-align: center; font-size: 14px; line-height: 1.6; word-break: keep-all; }
@@ -247,14 +258,14 @@
                             <th><span class="zh-title">標準上課時段</span><span class="en-title">Schedule</span></th>
                             <td colspan="2" id="timeDisplay" style="padding: 0; text-align: center; vertical-align: middle;">載入中...</td>
                         </tr>
-                        <!-- 🎯 Advance 系列專屬：保留「學員身分標籤」動態計費切換 -->
+                        <!-- 🎯 Advance 系列專屬：學員身分標籤（已將免購教材標示為不開放） -->
                         <tr>
                             <th><span class="zh-title">學員身分標籤</span><span class="en-title">Student Identity</span></th>
                             <td colspan="5">
                                 <div class="radio-group">
                                     <label><input type="radio" name="student_identity" value="new" checked onchange="calculateTuition()"> 新生（需購買專屬教材）</label>
                                     <label><input type="radio" name="student_identity" value="old_with_mat" onchange="calculateTuition()"> 舊生（需購買當期新教材）</label>
-                                    <label><input type="radio" name="student_identity" value="old_no_mat" onchange="calculateTuition()"> 舊生（延用舊教材／免購教材）</label>
+                                    <label class="disabled-option" title="本學期暫不開放"><input type="radio" name="student_identity" value="old_no_mat" disabled onchange="calculateTuition()"> 舊生（延用舊教材／免購教材 - 本學期不開放）</label>
                                 </div>
                             </td>
                         </tr>
